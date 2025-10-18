@@ -10,17 +10,32 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="language-toggle">
+        <button id="langToggle" class="lang-btn">
+            <span class="lang-option active" data-lang="ar">AR</span>
+            <span class="lang-separator">/</span>
+            <span class="lang-option" data-lang="en">EN</span>
+        </button>
+    </div>
+
     <header class="header-section">
         <div class="container text-center py-4">
             <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo" class="logo mb-3">
-            <h1 class="restaurant-name mb-2">واحد برجر - Wahed Burger</h1>
-            <p class="tagline mb-3">برجر رقم واحد - Number One Burger</p>
+            <h1 class="restaurant-name mb-2">
+                <span data-ar="واحد برجر" data-en="Wahed Burger">واحد برجر</span>
+            </h1>
+            <p class="tagline mb-3">
+                <span data-ar="برجر رقم واحد" data-en="Number One Burger">برجر رقم واحد</span>
+            </p>
             <div class="flags mb-3">
                 <span class="flag">🇪🇬</span>
                 <span class="flag">🇺🇸</span>
             </div>
             <a href="#rest-contact-us" class="btn btn-success btn-lg">
                 <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="menu.html" class="btn btn-primary btn-lg ms-2">
+                <i class="fas fa-utensils"></i> <span data-ar="القائمة" data-en="Full Menu">القائمة</span>
             </a>
         </div>
     </header>
@@ -59,7 +74,9 @@
     <section class="menu-cta text-center py-5">
         <div class="container">
             <img src="https://wahedburger.menuo.pro/_nuxt/click.C-DeAvR3.gif" alt="Click" class="click-gif mb-3">
-            <h2 class="section-title">عرض المنيو - View Menu</h2>
+            <h2 class="section-title">
+                <span data-ar="عرض المنيو" data-en="View Menu">عرض المنيو</span>
+            </h2>
         </div>
     </section>
 
@@ -70,8 +87,7 @@
                     <div class="category-card">
                         <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530627508-61330e87-77a5-4af8-888f-fa85a8f78c86.webp" class="category-img" alt="Beef Burger">
                         <div class="category-title">
-                            <span class="ar-text">بيف برجر</span>
-                            <span class="en-text">Beef Burger</span>
+                            <span data-ar="بيف برجر" data-en="Beef Burger">بيف برجر</span>
                         </div>
                     </div>
                 </div>
@@ -79,8 +95,7 @@
                     <div class="category-card">
                         <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530651937-5592ef97-b8e9-4dcc-8d26-bcd807166028.webp" class="category-img" alt="Chicken Burger">
                         <div class="category-title">
-                            <span class="ar-text">تشيكن برجر</span>
-                            <span class="en-text">Chicken Burger</span>
+                            <span data-ar="تشيكن برجر" data-en="Chicken Burger">تشيكن برجر</span>
                         </div>
                     </div>
                 </div>
@@ -88,8 +103,7 @@
                     <div class="category-card">
                         <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530706639-3849fcac-d03e-4f46-9685-167b6f2314a6.webp" class="category-img" alt="Appetizers">
                         <div class="category-title">
-                            <span class="ar-text">مقبلات</span>
-                            <span class="en-text">Appetizers</span>
+                            <span data-ar="مقبلات" data-en="Appetizers">مقبلات</span>
                         </div>
                     </div>
                 </div>
@@ -97,8 +111,7 @@
                     <div class="category-card">
                         <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530794434-8031938c-e961-4b13-b626-e0af98f91c07.webp" class="category-img" alt="Sauces">
                         <div class="category-title">
-                            <span class="ar-text">صوصات</span>
-                            <span class="en-text">Sauces</span>
+                            <span data-ar="صوصات" data-en="Sauces">صوصات</span>
                         </div>
                     </div>
                 </div>
@@ -110,42 +123,53 @@
         <div class="container">
             <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/covers/1757594825440-c4ce2925-0ce3-4f8d-80b2-3eedaae62269.webp" class="order-banner mb-4" alt="Order Banner">
             <img src="https://wahedburger.menuo.pro/_nuxt/click.C-DeAvR3.gif" alt="Click" class="click-gif mb-3">
-            <h2 class="section-title">أطلب الان - Order Now</h2>
+            <h2 class="section-title">
+                <span data-ar="أطلب الان" data-en="Order Now">أطلب الان</span>
+            </h2>
         </div>
     </section>
 
     <section class="final-header text-center py-4">
         <div class="container">
             <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo" class="logo-small mb-3">
-            <h2 class="restaurant-name-footer mb-2">واحد برجر - Wahed Burger</h2>
-            <p class="tagline-footer mb-2">برجر رقم واحد - Number One Burger</p>
-            <p class="slogan">يسد معاك - Satisfies Your Hunger 🍔🍟</p>
+            <h2 class="restaurant-name-footer mb-2">
+                <span data-ar="واحد برجر" data-en="Wahed Burger">واحد برجر</span>
+            </h2>
+            <p class="tagline-footer mb-2">
+                <span data-ar="برجر رقم واحد" data-en="Number One Burger">برجر رقم واحد</span>
+            </p>
+            <p class="slogan">
+                <span data-ar="يسد معاك" data-en="Satisfies Your Hunger">يسد معاك</span> 🍔🍟
+            </p>
         </div>
     </section>
 
     <section id="rest-contact-us" class="contact-section py-5">
         <div class="container">
-            <h2 class="section-title text-center mb-5">تواصل معنا - Contact Us</h2>
+            <h2 class="section-title text-center mb-5">
+                <span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span>
+            </h2>
             
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="contact-card">
-                        <h3 class="location-name mb-3">مدينه نصر - Nasr City</h3>
+                        <h3 class="location-name mb-3">
+                            <span data-ar="مدينه نصر" data-en="Nasr City">مدينه نصر</span>
+                        </h3>
                         
                         <div class="contact-info mb-3">
-                            <h5>أرقام التليفون - Phone Numbers</h5>
+                            <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
                             <p><a href="tel:+201143665727">+201143665727</a></p>
                         </div>
                         
                         <div class="contact-info mb-3">
-                            <h5>واتس اب - WhatsApp</h5>
+                            <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
                             <p><a href="https://wa.me/201011389401" target="_blank">+201011389401</a></p>
                         </div>
                         
                         <div class="contact-info mb-3">
-                            <h5>العنوان - Address</h5>
-                            <p>مدينه نصر اول مكرم</p>
-                            <p class="en-text">Nasr City, Awwal Makram</p>
+                            <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
+                            <p><span data-ar="مدينه نصر اول مكرم" data-en="Nasr City, Awwal Makram">مدينه نصر اول مكرم</span></p>
                         </div>
                         
                         <div class="map-container mt-3">
@@ -156,22 +180,23 @@
 
                 <div class="col-md-6">
                     <div class="contact-card">
-                        <h3 class="location-name mb-3">مصر الجديده - Heliopolis</h3>
+                        <h3 class="location-name mb-3">
+                            <span data-ar="مصر الجديده" data-en="Heliopolis">مصر الجديده</span>
+                        </h3>
                         
                         <div class="contact-info mb-3">
-                            <h5>أرقام التليفون - Phone Numbers</h5>
+                            <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
                             <p><a href="tel:+201009105861">+201009105861</a></p>
                         </div>
                         
                         <div class="contact-info mb-3">
-                            <h5>واتس اب - WhatsApp</h5>
+                            <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
                             <p><a href="https://wa.me/201009105861" target="_blank">+201009105861</a></p>
                         </div>
                         
                         <div class="contact-info mb-3">
-                            <h5>العنوان - Address</h5>
-                            <p>القاهرة مصر الجديدة شارع الاهرام</p>
-                            <p class="en-text">Cairo, Heliopolis, Al Ahram Street</p>
+                            <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
+                            <p><span data-ar="القاهرة مصر الجديدة شارع الاهرام" data-en="Cairo, Heliopolis, Al Ahram Street">القاهرة مصر الجديدة شارع الاهرام</span></p>
                         </div>
                         
                         <div class="map-container mt-3">
