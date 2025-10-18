@@ -2,12 +2,13 @@
 
 ## Overview
 
-A fully responsive restaurant menu website clone inspired by Wahed Burger. The site features a bilingual (Arabic/English) interface with an interactive carousel, menu categories, contact information with embedded Google Maps, and smooth animations. Built using pure HTML, CSS, JavaScript, and Bootstrap 5.
+A fully responsive restaurant menu website clone inspired by Wahed Burger. The site features a bilingual (Arabic/English) interface with an interactive language toggle, carousel, menu categories, dedicated menu page with pricing, contact information with embedded Google Maps, and enhanced animations throughout. Built using pure HTML, CSS, JavaScript, and Bootstrap 5.
 
-**Current State:** Complete and fully functional. Ready for user review and deployment.
+**Current State:** Complete and fully functional with language toggle and menu page. Ready for user review and deployment.
 
 ## Recent Changes (October 18, 2025)
 
+### Initial Implementation
 - ✅ Created complete restaurant website with hero section, carousel, menu categories, and contact sections
 - ✅ Implemented bilingual support (Arabic/English) throughout all sections
 - ✅ Added Google Maps integration with embedded iframes for both restaurant locations (Nasr City and Heliopolis)
@@ -16,11 +17,22 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 - ✅ Implemented smooth scroll navigation and fade-in animations
 - ✅ Set up web server workflow on port 5000
 
+### New Features Added
+- ✅ **Working EN/AR Language Toggle Button** - Fixed language switcher that dynamically changes all text and layout direction
+- ✅ **Dedicated Menu Page** - Full menu page (menu.html) with categories, items, prices, and descriptions
+- ✅ **Enhanced Transitions & Animations** - Multiple new animations including:
+  - Button hover effects with ripple animations
+  - Card hover overlays and 3D transforms
+  - Floating price tags
+  - Smooth fade-in animations for all elements
+  - Scroll-triggered animations using Intersection Observer
+  - Category header underline animations
+
 ## User Preferences
 
 - **Communication Style:** Simple, everyday language
 - **Design Preference:** Modern, vibrant restaurant theme with gradient backgrounds
-- **Language Support:** Bilingual (Arabic as primary, English as secondary)
+- **Language Support:** Bilingual (Arabic as primary, English as secondary) with working toggle
 
 ## Project Architecture
 
@@ -28,8 +40,8 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 
 **Frontend:**
 - HTML5 with semantic structure
-- CSS3 with custom properties and animations
-- Vanilla JavaScript for interactions
+- CSS3 with custom properties, animations, and transitions
+- Vanilla JavaScript for interactions and language switching
 - Bootstrap 5 for responsive layout and carousel component
 - Font Awesome 6 for icons
 - Google Fonts (Cairo family) for Arabic/international typography
@@ -43,50 +55,75 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 - **Event-driven architecture:** Vanilla JavaScript DOM manipulation
 - **Progressive enhancement:** CSS transitions with JavaScript animations
 - **Mobile-first responsive:** Bootstrap grid system with custom breakpoints
+- **State management:** localStorage for language preference persistence
 
 ### Key Components
 
-1. **Hero Section**
-   - Restaurant logo with circular styling
-   - Bilingual name and tagline (Arabic/English)
-   - Egyptian and US flag emojis
-   - WhatsApp call-to-action button
+1. **Language Toggle System**
+   - Fixed position toggle button (AR/EN)
+   - Switches between Arabic (RTL) and English (LTR) layouts
+   - Persists user preference in localStorage
+   - Smooth transition animations between languages
+   - Updates all text content dynamically using data attributes
 
-2. **Carousel System**
+2. **Hero Section**
+   - Restaurant logo with circular styling
+   - Bilingual name and tagline
+   - Egyptian and US flag emojis
+   - WhatsApp and Menu navigation buttons with hover effects
+
+3. **Carousel System**
    - Bootstrap-based auto-rotating image carousel
    - 4 food images with smooth transitions
    - 3-second interval rotation
    - Previous/Next navigation controls
    - Slide indicators
 
-3. **Menu Categories**
+4. **Menu Categories (Homepage)**
    - Responsive card grid layout (4 categories)
    - Categories: Beef Burger, Chicken Burger, Appetizers, Sauces
-   - Bilingual category names
-   - Hover effects with elevation animation
+   - Enhanced hover animations with rotation and overlay effects
    - Click feedback animation
+   - Links to full menu page
 
-4. **Contact Section**
+5. **Full Menu Page**
+   - Separate page with complete menu
+   - 4 main categories with section headers
+   - Individual menu items with:
+     - High-quality food images
+     - Animated price tags
+     - Item names and descriptions (bilingual)
+     - Hover effects with image zoom
+   - Back to home button
+   - Call-to-action for ordering
+
+6. **Contact Section**
    - Two restaurant locations (Nasr City & Heliopolis)
    - Phone numbers with tel: links
    - WhatsApp integration with wa.me links
    - Embedded Google Maps for each location
    - Bilingual address information
+   - Animated contact cards
 
-5. **Interactive Features**
+7. **Interactive Features & Animations**
+   - Language toggle with smooth transitions
    - Smooth scroll to contact section
-   - Intersection Observer for fade-in animations
-   - Category card click animations
-   - Hover effects throughout
+   - Intersection Observer for scroll-triggered fade-in animations
+   - Enhanced button hover effects with ripple animations
+   - Category card hover effects with 3D transforms
+   - Menu item animations with scale and fade effects
+   - Floating price tag animations
+   - Gradient overlays on hover
+   - Responsive animations for mobile devices
 
 ### Styling Architecture
 
 **Color Scheme:**
 - Primary gradient: #ff6b6b to #ff8e53 (header)
 - Secondary gradient: #ffd89b to #19547b (menu/order CTAs)
-- Tertiary gradient: #667eea to #764ba2 (contact section)
+- Tertiary gradient: #667eea to #764ba2 (contact section, language toggle)
 - WhatsApp green: #25d366
-- Background: #f8f9fa
+- Background: #f8f9fa with gradient variations
 
 **Typography:**
 - Font family: Cairo (weights: 400, 600, 700)
@@ -94,20 +131,25 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 - Secondary heading: 2rem
 - Body text: 1.2rem - 1.5rem
 - Small text: 1rem
+- Bilingual support with proper RTL/LTR handling
 
 **Animation Strategy:**
 - CSS transitions for performance (opacity, transform)
+- Cubic-bezier easing for smooth, bouncy effects
 - Intersection Observer for scroll-triggered animations
-- 300ms click feedback animations
-- Bounce animation for call-to-action elements
+- Keyframe animations for continuous effects (bounce, float, fade)
+- 300ms-600ms timing for interactive elements
+- Ripple effects on buttons
+- 3D transforms on cards
 
 ### File Structure
 
 ```
 /
-├── index.html          # Main HTML structure
-├── styles.css          # Custom styling and responsive design
-├── script.js           # JavaScript for carousel and interactions
+├── index.html          # Main homepage
+├── menu.html           # Full menu page with items and prices
+├── styles.css          # Custom styling, animations, and responsive design
+├── script.js           # JavaScript for carousel, language toggle, and interactions
 ├── .gitignore          # Git ignore configuration
 └── replit.md           # Project documentation (this file)
 ```
@@ -121,7 +163,7 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
    - Source: cdn.jsdelivr.net
 
 2. **Font Awesome 6.4.0**
-   - Purpose: Icons (WhatsApp, etc.)
+   - Purpose: Icons (WhatsApp, hamburger, utensils, arrows, etc.)
    - Source: cdnjs.cloudflare.com
 
 3. **Google Fonts API**
@@ -140,6 +182,7 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 1. **Intersection Observer API** - Efficient scroll-based animations
 2. **Bootstrap Carousel API** - Auto-rotating image carousel
 3. **DOMContentLoaded Event** - Ensures DOM is ready before JS execution
+4. **localStorage API** - Persists user language preference
 
 ## Features
 
@@ -147,34 +190,55 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 - ✅ Responsive hero section with branding
 - ✅ Auto-rotating carousel with 4 food images
 - ✅ Menu categories section with 4 card-based categories
+- ✅ **Working AR/EN language toggle button**
+- ✅ **Complete menu page with prices and descriptions**
 - ✅ Contact section with 2 locations
 - ✅ Embedded Google Maps for both locations
 - ✅ WhatsApp integration
 - ✅ Phone number links (tel: protocol)
 - ✅ Smooth scrolling navigation
-- ✅ Fade-in animations on scroll
-- ✅ Category card hover effects
-- ✅ Bilingual support (Arabic/English)
+- ✅ **Enhanced animations and transitions throughout**
+- ✅ Category card hover effects with 3D transforms
+- ✅ Bilingual support (Arabic/English) with dynamic switching
 - ✅ Mobile-responsive design
-- ✅ RTL layout support for Arabic
+- ✅ RTL/LTR layout support with automatic switching
+- ✅ Language preference persistence (localStorage)
+- ✅ Navigation between home and menu pages
 
 ### Future Enhancements (Optional)
-- Add detailed menu items with prices
-- Implement order/cart functionality
-- Add image lightbox for food photos
-- Create separate pages for each category
-- Add online ordering integration
-- Implement language toggle button
+- Add shopping cart functionality
+- Implement online ordering system
+- Add image lightbox/gallery for food photos
+- Create admin panel for menu management
 - Add customer reviews section
 - Social media integration
+- Implement real-time order tracking
+- Add delivery time estimation
+- Multiple payment methods integration
 
 ## Technical Notes
 
+### Language Toggle Implementation
+- Uses data-ar and data-en attributes on all translatable elements
+- Switches HTML lang and dir attributes dynamically
+- Persists preference in localStorage
+- Smooth opacity transitions when changing languages
+- Works on all pages (index.html and menu.html)
+
 ### Bilingual Implementation
 - Primary language: Arabic (RTL)
-- Secondary language: English (displayed alongside Arabic)
-- All major text elements include both languages
-- Layout remains RTL-focused with English as supplementary
+- Secondary language: English (LTR)
+- All text elements include both languages via data attributes
+- Layout direction switches automatically with language
+- Language toggle button position adjusts based on direction
+
+### Enhanced Animations
+- **Button Effects**: Ripple animations, scale transforms, shadow depth
+- **Card Animations**: 3D rotation, gradient overlays, smooth transitions
+- **Scroll Animations**: Intersection Observer for fade-in and scale effects
+- **Continuous Animations**: Floating price tags, bouncing CTAs
+- **Hover Effects**: Image zoom, color changes, elevation increases
+- **Timing**: Cubic-bezier easing for natural motion
 
 ### Google Maps Integration
 - Uses Google Maps Embed API
@@ -189,12 +253,14 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 - CSS-based animations (GPU accelerated)
 - Efficient Intersection Observer usage
 - Optimized image formats (WebP)
+- localStorage for state persistence
 
 ### Browser Compatibility
 - Modern browsers (Chrome, Firefox, Safari, Edge)
 - Mobile browsers (iOS Safari, Chrome Mobile)
 - Requires JavaScript enabled
 - Requires CSS Grid and Flexbox support
+- Requires Intersection Observer support (or polyfill)
 
 ## Deployment
 
@@ -217,4 +283,6 @@ A fully responsive restaurant menu website clone inspired by Wahed Burger. The s
 - Google Maps embeds require API availability
 - Consider downloading and hosting images locally for production
 - Update phone numbers and addresses as needed
-- Refresh menu categories when restaurant menu changes
+- Refresh menu categories and items when restaurant menu changes
+- Update prices in menu.html as needed
+- Language toggle works automatically, no additional configuration needed
