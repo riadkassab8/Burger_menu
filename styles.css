@@ -1,0 +1,320 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.header-section {
+    background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+    color: white;
+}
+
+.logo {
+    max-width: 150px;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo-small {
+    max-width: 100px;
+    height: auto;
+    border-radius: 50%;
+}
+
+.restaurant-name {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.restaurant-name-footer {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.tagline-footer {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+.flags .flag {
+    font-size: 2rem;
+    margin: 0 10px;
+}
+
+.btn-success {
+    background-color: #25d366;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+}
+
+.btn-success:hover {
+    background-color: #128c7e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+}
+
+.carousel-section {
+    background-color: #fff;
+    padding: 20px 0;
+}
+
+.carousel-inner img {
+    height: 500px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#foodCarousel {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+.menu-cta, .order-cta {
+    background: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.click-gif {
+    max-width: 80px;
+    animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.menu-categories {
+    background-color: #f8f9fa;
+}
+
+.category-card {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.category-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.category-title {
+    padding: 20px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #333;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.9), rgba(255,255,255,1));
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ar-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.en-text {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #666;
+    font-style: italic;
+}
+
+.order-banner {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.final-header {
+    background-color: #fff;
+    border-top: 3px solid #ff6b6b;
+}
+
+.slogan {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #ff6b6b;
+}
+
+.contact-section {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+}
+
+.contact-section .section-title {
+    color: white;
+}
+
+.contact-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.contact-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.location-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffd89b;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+    padding-bottom: 10px;
+}
+
+.contact-info h5 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #ffd89b;
+    margin-bottom: 5px;
+}
+
+.contact-info p {
+    margin-bottom: 0;
+    font-size: 1.1rem;
+}
+
+.contact-info a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+    color: #ffd89b;
+}
+
+.map-link {
+    display: inline-block;
+    margin-top: 5px;
+    padding: 8px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.map-link:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateX(-5px);
+}
+
+.map-container {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.map-container iframe {
+    display: block;
+    width: 100%;
+}
+
+.footer {
+    background-color: #333;
+    color: white;
+}
+
+.footer a {
+    color: #ff6b6b;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer a:hover {
+    color: #ff8e53;
+}
+
+@media (max-width: 768px) {
+    .restaurant-name {
+        font-size: 1.8rem;
+    }
+    
+    .tagline {
+        font-size: 1.2rem;
+    }
+    
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .carousel-inner img {
+        height: 300px;
+    }
+    
+    .category-img {
+        height: 200px;
+    }
+}
+
+@media (max-width: 576px) {
+    .restaurant-name {
+        font-size: 1.5rem;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+    }
+    
+    .carousel-inner img {
+        height: 250px;
+    }
+}
