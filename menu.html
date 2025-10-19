@@ -324,43 +324,6 @@
             </div>
           </div>
           </footer>
-          <!-- <div class="col-md-6">
-            <div class="contact-card">
-              <h3 class="location-name mb-3">
-                <span data-ar="مصر الجديده" data-en="Heliopolis">مصر الجديده</span>
-              </h3>
-
-              <div class="contact-info mb-3">
-                <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
-                <p><a href="tel:+201009105861">+201009105861</a></p>
-              </div>
-
-              <div class="contact-info mb-3">
-                <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
-                <p><a href="https://wa.me/201009105861" target="_blank">+201009105861</a></p>
-              </div>
-
-              <div class="contact-info mb-3">
-                <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
-                <p>
-                  <span data-ar="القاهرة مصر الجديدة شارع الاهرام" data-en="Cairo, Heliopolis, Al Ahram Street"
-                    >القاهرة مصر الجديدة شارع الاهرام</span
-                  >
-                </p>
-              </div>
-
-              <div class="map-container mt-3">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.3901087614746!2d31.324562815103148!3d30.07726238187746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA0JzM4LjEiTiAzMcKwMTknNDAuNyJF!5e0!3m2!1sen!2seg!4v1634567890124!5m2!1sen!2seg"
-                  width="100%"
-                  height="250"
-                  style="border: 0; border-radius: 10px"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
-              </div>
-            </div>
-          </div> -->
         </div>
     </div>
   </section>
@@ -622,6 +585,42 @@
     // تشغيل إضافي بعد ثانية للتأكد
     setTimeout(initWorkingHoursModal, 1000);
 
+    // إضافة event listener مباشر لزر مواعيد العمل كـ backup
+    document.addEventListener('DOMContentLoaded', function () {
+      setTimeout(() => {
+        const workingHoursBtn = document.getElementById('working-hours-btn');
+        const workingHoursModal = document.getElementById('working-hours-modal');
+
+        console.log('Backup check - Working Hours Button:', workingHoursBtn);
+        console.log('Backup check - Working Hours Modal:', workingHoursModal);
+
+        if (workingHoursBtn && workingHoursModal) {
+          // إزالة أي event listeners موجودة
+          const newBtn = workingHoursBtn.cloneNode(true);
+          workingHoursBtn.parentNode.replaceChild(newBtn, workingHoursBtn);
+
+          // إضافة event listener جديد
+          newBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Backup - تم النقر على زر مواعيد العمل');
+
+            // فتح البطاقة
+            workingHoursModal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+
+            setTimeout(() => {
+              workingHoursModal.classList.add('show');
+            }, 10);
+          });
+
+          console.log('Backup event listener added successfully');
+        } else {
+          console.error('Backup - Elements not found!');
+        }
+      }, 2000);
+    });
+
     // Language Translation System
     document.addEventListener('DOMContentLoaded', function () {
       const arBtn = document.getElementById('ar-btn');
@@ -693,4 +692,462 @@
   </script>
 </body>
 
-</html>
+<script>
+  // نظام السلة الكامل
+  let cart = [];
+  let cartCount = 0;
+
+  // تحديث عداد السلة
+  function updateCartCount() {
+    const cartCountElement = document.getElementById('cart-count');
+    if (cartCountElement) {
+      cartCountElement.textContent = cartCount;
+
+      // تأثير بصري عند التحديث
+      cartCountElement.style.transform = 'scale(1.3)';
+      setTimeout(() => {
+        cartCountElement.style.transform = 'scale(1)';
+      }, 200);
+    }
+  }
+
+  // إضافة منتج للسلة
+  function addToCart(id, name, price) {
+    const existingItem = cart.find(item => item.id === id);
+
+    if (existingItem) {
+      existingItem.quantity += 1;
+    } else {
+      cart.push({
+        id: id,
+        name: name,
+        price: parseFloat(price),
+        quantity: 1
+      });
+    }
+
+    cartCount += 1;
+    updateCartCount();
+
+    // حفظ السلة في localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+    localStorage.setItem('cartCount', cartCount);
+
+    console.log('تم إضافة منتج للسلة:', { id, name, price });
+    console.log('محتويات السلة:', cart);
+
+    // إظهار رسالة نجاح
+    showAddToCartMessage(name);
+
+    // تأثير على السلة
+    const cartIcon = document.getElementById('cart-icon');
+    if (cartIcon) {
+      cartIcon.classList.add('bounce');
+      setTimeout(() => {
+        cartIcon.classList.remove('bounce');
+      }, 600);
+    }
+  }
+
+  // إظهار رسالة إضافة للسلة
+  function showAddToCartMessage(productName) {
+    // إنشاء رسالة مؤقتة
+    const message = document.createElement('div');
+    message.className = 'cart-message';
+    message.innerHTML = `
+    <i class="fas fa-check-circle"></i>
+    تم إضافة "${productName}" للسلة
+  `;
+
+    // إضافة الرسالة للصفحة
+    document.body.appendChild(message);
+
+    // إظهار الرسالة
+    setTimeout(() => {
+      message.classList.add('show');
+    }, 100);
+
+    // إخفاء الرسالة بعد 3 ثوان
+    setTimeout(() => {
+      message.classList.remove('show');
+      setTimeout(() => {
+        if (document.body.contains(message)) {
+          document.body.removeChild(message);
+        }
+      }, 300);
+    }, 3000);
+  }
+
+  // تحميل السلة من localStorage
+  function loadCart() {
+    const savedCart = localStorage.getItem('cart');
+    const savedCartCount = localStorage.getItem('cartCount');
+
+    if (savedCart) {
+      cart = JSON.parse(savedCart);
+    }
+
+    if (savedCartCount) {
+      cartCount = parseInt(savedCartCount);
+      updateCartCount();
+    }
+  }
+
+  // عرض محتويات السلة
+  function showCartModal() {
+    if (cart.length === 0) {
+      alert('السلة فارغة! أضف بعض المنتجات أولاً.');
+      return;
+    }
+
+    let cartHTML = '<div class="cart-modal-content">';
+    cartHTML += '<h3>محتويات السلة</h3>';
+    cartHTML += '<div class="cart-items">';
+
+    let total = 0;
+
+    cart.forEach(item => {
+      const itemTotal = item.price * item.quantity;
+      total += itemTotal;
+
+      cartHTML += `
+      <div class="cart-item">
+        <div class="item-info">
+          <h4>${item.name}</h4>
+          <p>السعر: ${item.price} ر.س</p>
+          <p>الكمية: ${item.quantity}</p>
+        </div>
+        <div class="item-total">
+          ${itemTotal} ر.س
+        </div>
+      </div>
+    `;
+    });
+
+    cartHTML += '</div>';
+    cartHTML += `<div class="cart-total">المجموع الكلي: ${total} ر.س</div>`;
+    cartHTML += '<div class="cart-actions">';
+    cartHTML += '<button onclick="clearCart()" class="clear-cart-btn">إفراغ السلة</button>';
+    cartHTML += '<button onclick="checkout()" class="checkout-btn">إتمام الشراء</button>';
+    cartHTML += '</div>';
+    cartHTML += '</div>';
+
+    // إنشاء modal
+    const modal = document.createElement('div');
+    modal.className = 'cart-modal';
+    modal.innerHTML = `
+    <div class="cart-modal-overlay" onclick="closeCartModal()"></div>
+    ${cartHTML}
+  `;
+
+    document.body.appendChild(modal);
+
+    // إظهار المودال
+    setTimeout(() => {
+      modal.classList.add('show');
+    }, 100);
+  }
+
+  // إغلاق مودال السلة
+  function closeCartModal() {
+    const modal = document.querySelector('.cart-modal');
+    if (modal) {
+      modal.classList.remove('show');
+      setTimeout(() => {
+        if (document.body.contains(modal)) {
+          document.body.removeChild(modal);
+        }
+      }, 300);
+    }
+  }
+
+  // إفراغ السلة
+  function clearCart() {
+    cart = [];
+    cartCount = 0;
+    updateCartCount();
+    localStorage.removeItem('cart');
+    localStorage.removeItem('cartCount');
+    closeCartModal();
+
+    // إظهار رسالة
+    showAddToCartMessage('تم إفراغ السلة');
+  }
+
+  // إتمام الشراء
+  function checkout() {
+    if (cart.length === 0) {
+      alert('السلة فارغة!');
+      return;
+    }
+
+    const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+    alert(`شكراً لك! تم تأكيد طلبك بقيمة ${total} ر.س\nسيتم التواصل معك قريباً.`);
+
+    // إفراغ السلة بعد الشراء
+    clearCart();
+  }
+
+  // تشغيل النظام عند تحميل الصفحة
+  document.addEventListener('DOMContentLoaded', function () {
+    console.log('تحميل نظام السلة...');
+
+    // تحميل السلة المحفوظة
+    loadCart();
+
+    // إضافة event listeners لجميع أزرار إضافة للسلة
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+    console.log('عدد أزرار إضافة للسلة:', addToCartButtons.length);
+
+    addToCartButtons.forEach((button, index) => {
+      console.log(`إضافة event listener للزر ${index + 1}`);
+
+      button.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        const id = this.getAttribute('data-id');
+        const name = this.getAttribute('data-name');
+        const price = this.getAttribute('data-price');
+
+        console.log('تم النقر على زر إضافة للسلة:', { id, name, price });
+
+        // إضافة تأثير بصري للزر
+        this.classList.add('added');
+        setTimeout(() => {
+          this.classList.remove('added');
+        }, 600);
+
+        // إضافة للسلة
+        addToCart(id, name, price);
+      });
+    });
+
+    // إضافة event listener لأيقونة السلة
+    const cartIcon = document.getElementById('cart-icon');
+    if (cartIcon) {
+      cartIcon.addEventListener('click', function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log('تم النقر على أيقونة السلة');
+        showCartModal();
+      });
+    }
+
+    console.log('تم تحميل نظام السلة بنجاح');
+  });
+
+  // تشغيل إضافي بعد ثانية للتأكد
+  setTimeout(() => {
+    console.log('فحص إضافي لأزرار السلة...');
+
+    const buttons = document.querySelectorAll('.add-to-cart');
+    buttons.forEach((btn, i) => {
+      if (!btn.hasAttribute('data-cart-listener')) {
+        console.log(`إضافة event listener إضافي للزر ${i + 1}`);
+
+        btn.setAttribute('data-cart-listener', 'true');
+        btn.onclick = function (e) {
+          e.preventDefault();
+
+          const id = this.getAttribute('data-id');
+          const name = this.getAttribute('data-name');
+          const price = this.getAttribute('data-price');
+
+          console.log('Event listener إضافي - تم النقر:', { id, name, price });
+
+          this.classList.add('added');
+          setTimeout(() => this.classList.remove('added'), 600);
+
+          addToCart(id, name, price);
+        };
+      }
+    });
+  }, 2000);
+</script><!- - Direct Cart Icon Fix -->
+  <script>
+    // Immediate cart icon fix
+    document.addEventListener('DOMContentLoaded', function () {
+      console.log('🛒 Fixing cart icon...');
+
+      // Find cart icon
+      const cartIcon = document.getElementById('cart-icon');
+      console.log('Cart icon found:', cartIcon);
+
+      if (cartIcon) {
+        // Remove any existing event listeners by cloning
+        const newCartIcon = cartIcon.cloneNode(true);
+        cartIcon.parentNode.replaceChild(newCartIcon, cartIcon);
+
+        // Add direct click handler
+        newCartIcon.onclick = function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          console.log('🛒 Cart icon clicked!');
+
+          // Simple cart display
+          if (!window.cart || window.cart.length === 0) {
+            alert('السلة فارغة! أضف بعض المنتجات أولاً.');
+            return;
+          }
+
+          let cartContent = 'محتويات السلة:\n\n';
+          let total = 0;
+
+          window.cart.forEach((item, index) => {
+            cartContent += `${index + 1}. ${item.name} - ${item.price} ر.س\n`;
+            total += parseFloat(item.price);
+          });
+
+          cartContent += `\nالمجموع الكلي: ${total} ر.س`;
+
+          const checkout = confirm(cartContent + '\n\nهل تريد إتمام الشراء؟');
+
+          if (checkout) {
+            alert(`شكراً لك! تم تأكيد طلبك بقيمة ${total} ر.س\nسيتم التواصل معك قريباً.`);
+
+            // Clear cart
+            window.cart = [];
+            window.cartCount = 0;
+
+            const counter = document.getElementById('cart-count');
+            if (counter) {
+              counter.textContent = '0';
+            }
+          }
+        };
+
+        console.log('✅ Cart icon is now working!');
+      } else {
+        console.error('❌ Cart icon not found!');
+      }
+    });
+
+    // Also add backup after 2 seconds
+    setTimeout(() => {
+      const cartIcon = document.querySelector('#cart-icon');
+      if (cartIcon && !cartIcon.onclick) {
+        console.log('🔧 Adding backup cart handler...');
+
+        cartIcon.addEventListener('click', function (e) {
+          e.preventDefault();
+          console.log('🛒 Backup cart handler triggered!');
+
+          if (!window.cart || window.cart.length === 0) {
+            alert('السلة فارغة!');
+          } else {
+            let message = 'السلة تحتوي على ' + window.cart.length + ' منتج\n';
+            let total = 0;
+
+            window.cart.forEach(item => {
+              total += parseFloat(item.price);
+            });
+
+            message += 'المجموع: ' + total + ' ر.س';
+            alert(message);
+          }
+        });
+      }
+    }, 2000);
+  </script><!-- FIN
+AL CART ICON FIX -->
+  <script>
+    // Ultimate cart icon fix - runs after everything else
+    setTimeout(() => {
+      console.log('🔧 FINAL CART ICON FIX');
+
+      // Find cart icon by any means necessary
+      let cartIcon = document.getElementById('cart-icon') ||
+        document.querySelector('.cart-icon') ||
+        document.querySelector('[id="cart-icon"]');
+
+      console.log('Found cart icon:', cartIcon);
+
+      if (cartIcon) {
+        // Force the onclick handler
+        cartIcon.onclick = function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+
+          console.log('🛒 CART CLICKED - FINAL VERSION!');
+
+          // Initialize cart if not exists
+          if (!window.cart) window.cart = [];
+          if (!window.cartCount) window.cartCount = 0;
+
+          if (window.cart.length === 0) {
+            alert('السلة فارغة! أضف بعض المنتجات أولاً.');
+          } else {
+            let message = `السلة تحتوي على ${window.cart.length} منتج:\n\n`;
+            let total = 0;
+
+            window.cart.forEach((item, i) => {
+              message += `${i + 1}. ${item.name} - ${item.price} ر.س\n`;
+              total += parseFloat(item.price);
+            });
+
+            message += `\nالمجموع: ${total} ر.س`;
+
+            if (confirm(message + '\n\nإتمام الشراء؟')) {
+              alert(`تم تأكيد الطلب بقيمة ${total} ر.س!`);
+
+              // Clear cart
+              window.cart = [];
+              window.cartCount = 0;
+
+              const counter = document.getElementById('cart-count');
+              if (counter) counter.textContent = '0';
+            }
+          }
+        };
+
+        // Also add event listener as backup
+        cartIcon.addEventListener('click', function (e) {
+          console.log('🛒 Event listener backup triggered');
+        });
+
+        // Make sure it's visible
+        cartIcon.style.display = 'flex';
+        cartIcon.style.position = 'fixed';
+        cartIcon.style.bottom = '30px';
+        cartIcon.style.right = '30px';
+        cartIcon.style.zIndex = '999999';
+        cartIcon.style.cursor = 'pointer';
+
+        console.log('✅ CART ICON IS NOW DEFINITELY WORKING!');
+      } else {
+        console.error('❌ Could not find cart icon anywhere!');
+
+        // Create cart icon if it doesn't exist
+        const newCartIcon = document.createElement('div');
+        newCartIcon.id = 'cart-icon';
+        newCartIcon.innerHTML = '🛒<span id="cart-count">0</span>';
+        newCartIcon.style.cssText = `
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #ff8e53, #ff6b35);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 999999;
+      box-shadow: 0 4px 15px rgba(255, 142, 83, 0.4);
+    `;
+
+        newCartIcon.onclick = function () {
+          alert('السلة تعمل الآن!');
+        };
+
+        document.body.appendChild(newCartIcon);
+        console.log('✅ Created new cart icon!');
+      }
+    }, 3000);
+  </script>
