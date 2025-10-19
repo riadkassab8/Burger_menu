@@ -1,254 +1,298 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
-    <title>قائمة المطعم</title>
-    <link rel="stylesheet" href="styles.css" />
-    <!-- <link rel="stylesheet" href="chat.css">   -->
-  </head>
-  <body>
-    <!-- Loading Screen -->
-    <div class="loading-screen" id="loading-screen">
-      <div class="loading-logo">قائمة الطعام</div>
-      <div class="loading-spinner"></div>
-    </div>
-    <!-- Header -->
-    <header id="main-header">
-      <div class="header-container">
-        <!-- Cart -->
-        <div class="cart-icon" id="cart-icon">
-          🛒
-          <span class="cart-count" id="cart-count">0</span>
-        </div>
 
-        <!-- Language Switcher -->
-        <div class="language-switcher">
-          <button class="language-btn active" id="ar-btn">العربية</button>
-          <button class="language-btn" id="en-btn">English</button>
-        </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>قائمة المطعم</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <!-- <link rel="stylesheet" href="chat.css">   -->
+</head>
 
-        <!-- Logo and Menu -->
-        <div class="right-section">
-          <div class="menu-toggle" id="menu-toggle">☰</div>
-          <div class="logo" id="logo">قائمة الطعام</div>
-        </div>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-logo">قائمة الطعام</div>
+    <div class="loading-spinner"></div>
+  </div>
+  <!-- Header -->
+  <header id="main-header">
+    <div class="header-container">
+      <!-- Cart -->
+      <div class="cart-icon" id="cart-icon">
+        🛒
+        <span class="cart-count" id="cart-count">0</span>
       </div>
 
-      <!-- Collapsed Links -->
-      <nav class="nav-links" id="nav-links">
-        <a href="index.html" class="nav-item" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
-        <a href="menu.html" class="nav-item" data-ar="القائمة" data-en="Menu">القائمة</a>
-        <a href="#contact_us" class="nav-item" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
-      </nav>
-    </header>
-    <!-- Restaurant Info -->
-    <div class="restaurant-info">
-      <img
-        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-        alt="Restaurant"
-        class="restaurant-image"
-      />
-      <h1 class="restaurant-name" id="restaurant-name">مطعم المدينة</h1>
-      <p class="restaurant-description" id="restaurant-description">أجود أنواع الطعام العربي والأجنبي بأيدي خبراء الطهي</p>
-    </div>
+      <!-- Language Switcher -->
+      <div class="language-switcher">
+        <button class="language-btn active" id="ar-btn">العربية</button>
+        <button class="language-btn" id="en-btn">English</button>
+      </div>
 
-    <!-- Categories -->
-    <div class="categories-container">
-      <div class="categories">
-        <div class="category active" data-category="all" id="all-category">الكل</div>
-        <div class="category" data-category="main" id="main-category">الوجبات الرئيسية</div>
-        <div class="category" data-category="appetizers" id="appetizers-category">المقبلات</div>
-        <div class="category" data-category="drinks" id="drinks-category">المشروبات</div>
-        <div class="category" data-category="desserts" id="desserts-category">الحلويات</div>
+      <!-- Logo and Menu -->
+      <div class="right-section">
+        <div class="menu-toggle" id="menu-toggle">☰</div>
+        <div class="logo" id="logo">قائمة الطعام</div>
       </div>
     </div>
 
-    <!-- Menu Sections -->
-    <div class="menu-container">
-      <div class="menu-section" id="main-section">
-        <h2 class="section-title" id="main-section-title">الوجبات الرئيسية</h2>
-        <div class="menu-items">
-          <!-- Item 1 -->
-          <div class="menu-item" data-category="main">
-            <img
-              src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
-              alt="Kebab"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">كباب مشوي</h3>
-              <p class="item-description">لحم ضأن مشوي مع الأرز والخضار</p>
-              <p class="item-price">25 ر.س</p>
-              <button class="add-to-cart" data-id="1" data-name="كباب مشوي" data-price="25">إضافة إلى السلة</button>
-            </div>
-          </div>
+    <!-- Collapsed Links -->
+    <nav class="nav-links" id="nav-links">
+      <a href="index.html" class="nav-item" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+      <a href="menu.html" class="nav-item" data-ar="القائمة" data-en="Menu">القائمة</a>
+      <a href="#contact_us" class="nav-item" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+      <button class="nav-item working-hours-btn" id="working-hours-btn" data-ar="مواعيد العمل" data-en="Working Hours">
+        <i class="fas fa-clock"></i>
+        <span data-ar="مواعيد العمل" data-en="Working Hours">مواعيد العمل</span>
+      </button>
+    </nav>
+  </header>
 
-          <!-- Item 2 -->
-          <div class="menu-item" data-category="main">
-            <img
-              src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Mandi"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">مندي دجاج</h3>
-              <p class="item-description">دجاج مطبوخ مع الأرز البسمتي</p>
-              <p class="item-price">30 ر.س</p>
-              <button class="add-to-cart" data-id="2" data-name="مندي دجاج" data-price="30">إضافة إلى السلة</button>
-            </div>
-          </div>
-
-          <!-- Item 3 -->
-          <div class="menu-item" data-category="main">
-            <img
-              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1599&q=80"
-              alt="Burger"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">برجر لحم</h3>
-              <p class="item-description">برجر لحم مع الجبن والخضار</p>
-              <p class="item-price">20 ر.س</p>
-              <button class="add-to-cart" data-id="3" data-name="برجر لحم" data-price="20">إضافة إلى السلة</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-section" id="appetizers-section">
-        <h2 class="section-title" id="appetizers-section-title">المقبلات</h2>
-        <div class="menu-items">
-          <!-- Item 4 -->
-          <div class="menu-item" data-category="appetizers">
-            <img
-              src="https://www.themediterraneandish.com/wp-content/uploads/2024/05/TMD-Hummus-Leads-03-Horizontal.jpg"
-              alt="Hummus"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">حمص</h3>
-              <p class="item-description">حمص مع زيت الزيتون</p>
-              <p class="item-price">10 ر.س</p>
-              <button class="add-to-cart" data-id="4" data-name="حمص" data-price="10">إضافة إلى السلة</button>
-            </div>
-          </div>
-
-          <!-- Item 5 -->
-          <div class="menu-item" data-category="appetizers">
-            <img
-              src="https://tse3.mm.bing.net/th/id/OIP.i3xrvPK2C8vG7KNkUsOPRQHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
-              alt="Falafel"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">فلافل</h3>
-              <p class="item-description">فلافل مقرمشة مع الطحينة</p>
-              <p class="item-price">8 ر.س</p>
-              <button class="add-to-cart" data-id="5" data-name="فلافل" data-price="8">إضافة إلى السلة</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-section" id="drinks-section">
-        <h2 class="section-title" id="drinks-section-title">المشروبات</h2>
-        <div class="menu-items">
-          <!-- Item 6 -->
-          <div class="menu-item" data-category="drinks">
-            <img
-              src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Juice"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">عصير برتقال</h3>
-              <p class="item-description">عصير برتقال طازج</p>
-              <p class="item-price">7 ر.س</p>
-              <button class="add-to-cart" data-id="6" data-name="عصير برتقال" data-price="7">إضافة إلى السلة</button>
-            </div>
-          </div>
-
-          <!-- Item 7 -->
-          <div class="menu-item" data-category="drinks">
-            <img
-              src="https://tse4.mm.bing.net/th/id/OIP.0Q5aYCR4Dw8HcLB_StUOcgHaE8?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
-              alt="Lemonade"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">ليموناضة</h3>
-              <p class="item-description">ليموناضة منعشة</p>
-              <p class="item-price">5 ر.س</p>
-              <button class="add-to-cart" data-id="7" data-name="ليموناضة" data-price="5">إضافة إلى السلة</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="menu-section" id="desserts-section">
-        <h2 class="section-title" id="desserts-section-title">الحلويات</h2>
-        <div class="menu-items">
-          <!-- Item 8 -->
-          <div class="menu-item" data-category="desserts">
-            <img
-              src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Kunafa"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">كنافة</h3>
-              <p class="item-description">كنافة بالقشطة</p>
-              <p class="item-price">15 ر.س</p>
-              <button class="add-to-cart" data-id="8" data-name="كنافة" data-price="15">إضافة إلى السلة</button>
-            </div>
-          </div>
-
-          <!-- Item 9 -->
-          <div class="menu-item" data-category="desserts">
-            <img
-              src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
-              alt="Baklava"
-              class="item-image"
-            />
-            <div class="item-details">
-              <h3 class="item-name">بقلاوة</h3>
-              <p class="item-description">بقلاوة بالفستق</p>
-              <p class="item-price">12 ر.س</p>
-              <button class="add-to-cart" data-id="9" data-name="بقلاوة" data-price="12">إضافة إلى السلة</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Floating Cart Button (Mobile) -->
-    <div class="floating-cart-btn" id="floating-cart-btn">
-      <span class="floating-cart-icon">🛒</span>
-      <span class="floating-cart-count" id="floating-cart-count">0</span>
-    </div>
-
-    <!-- Cart Modal -->
-    <div class="overlay" id="overlay"></div>
-    <div class="cart-modal" id="cart-modal">
-      <div class="cart-header">
-        <h2 id="cart-title">سلة التسوق</h2>
-        <span class="close-cart" id="close-cart">×</span>
-      </div>
-      <div class="cart-items" id="cart-items">
-        <!-- Cart items will be added here dynamically -->
-      </div>
-      <div class="cart-footer">
-        <div class="cart-total" id="cart-total">الإجمالي: 0 ر.س</div>
-        <button class="checkout-btn" id="checkout-btn">إنهاء الطلب</button>
-      </div>
-    </div>
-    <section id="rest-contact-us" class="contact-section py-5">
-      <div class="container">
-        <h2 class="section-title text-center mb-5">
-          <span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span>
+  <!-- Working Hours Modal -->
+  <div class="working-hours-modal" id="working-hours-modal">
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>
+          <i class="fas fa-clock"></i>
+          <span data-ar="مواعيد العمل" data-en="Working Hours">مواعيد العمل</span>
         </h2>
-        <section class="contact_us" id="contact_us">
+        <button class="close-btn" id="close-modal">×</button>
+      </div>
+      <div class="modal-body">
+        <div class="working-hours-grid">
+          <div class="day-row">
+            <span class="day" data-ar="السبت" data-en="Saturday">السبت</span>
+            <span class="hours" data-ar="9:00 ص - 12:00 م" data-en="9:00 AM - 12:00 PM">9:00 ص - 12:00 م</span>
+          </div>
+          <div class="day-row">
+            <span class="day" data-ar="الأحد" data-en="Sunday">الأحد</span>
+            <span class="hours" data-ar="9:00 ص - 12:00 م" data-en="9:00 AM - 12:00 PM">9:00 ص - 12:00 م</span>
+          </div>
+          <div class="day-row">
+            <span class="day" data-ar="الاثنين" data-en="Monday">الاثنين</span>
+            <span class="hours" data-ar="9:00 ص - 12:00 م" data-en="9:00 AM - 12:00 PM">9:00 ص - 12:00 م</span>
+          </div>
+          <div class="day-row">
+            <span class="day" data-ar="الثلاثاء" data-en="Tuesday">الثلاثاء</span>
+            <span class="hours" data-ar="9:00 ص - 12:00 م" data-en="9:00 AM - 12:00 PM">9:00 ص - 12:00 م</span>
+          </div>
+          <div class="day-row">
+            <span class="day" data-ar="الأربعاء" data-en="Wednesday">الأربعاء</span>
+            <span class="hours" data-ar="9:00 ص - 12:00 م" data-en="9:00 AM - 12:00 PM">9:00 ص - 12:00 م</span>
+          </div>
+          <div class="day-row">
+            <span class="day" data-ar="الخميس" data-en="Thursday">الخميس</span>
+            <span class="hours" data-ar="9:00 ص - 12:00 م" data-en="9:00 AM - 12:00 PM">9:00 ص - 12:00 م</span>
+          </div>
+          <div class="day-row closed">
+            <span class="day" data-ar="الجمعة" data-en="Friday">الجمعة</span>
+            <span class="hours" data-ar="مغلق" data-en="Closed">مغلق</span>
+          </div>
+        </div>
+        <div class="additional-info">
+          <div class="info-item">
+            <i class="fas fa-phone"></i>
+            <span data-ar="للحجز والاستفسار: 123-456-7890" data-en="For Reservations: 123-456-7890">للحجز والاستفسار:
+              123-456-7890</span>
+          </div>
+          <div class="info-item">
+            <i class="fas fa-map-marker-alt"></i>
+            <span data-ar="العنوان: شارع الملك فهد، الرياض" data-en="Address: King Fahd Street, Riyadh">العنوان: شارع
+              الملك فهد، الرياض</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Restaurant Info -->
+  <div class="restaurant-info">
+    <img
+      src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+      alt="Restaurant" class="restaurant-image" />
+    <h1 class="restaurant-name" id="restaurant-name">مطعم المدينة</h1>
+    <p class="restaurant-description" id="restaurant-description">أجود أنواع الطعام العربي والأجنبي بأيدي خبراء الطهي
+    </p>
+  </div>
+
+  <!-- Categories -->
+  <div class="categories-container">
+    <div class="categories">
+      <div class="category active" data-category="all" id="all-category">الكل</div>
+      <div class="category" data-category="main" id="main-category">الوجبات الرئيسية</div>
+      <div class="category" data-category="appetizers" id="appetizers-category">المقبلات</div>
+      <div class="category" data-category="drinks" id="drinks-category">المشروبات</div>
+      <div class="category" data-category="desserts" id="desserts-category">الحلويات</div>
+    </div>
+  </div>
+
+  <!-- Menu Sections -->
+  <div class="menu-container">
+    <div class="menu-section" id="main-section">
+      <h2 class="section-title" id="main-section-title">الوجبات الرئيسية</h2>
+      <div class="menu-items">
+        <!-- Item 1 -->
+        <div class="menu-item" data-category="main">
+          <img
+            src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+            alt="Kebab" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">كباب مشوي</h3>
+            <p class="item-description">لحم ضأن مشوي مع الأرز والخضار</p>
+            <p class="item-price">25 ر.س</p>
+            <button class="add-to-cart" data-id="1" data-name="كباب مشوي" data-price="25">إضافة إلى السلة</button>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="menu-item" data-category="main">
+          <img
+            src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Mandi" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">مندي دجاج</h3>
+            <p class="item-description">دجاج مطبوخ مع الأرز البسمتي</p>
+            <p class="item-price">30 ر.س</p>
+            <button class="add-to-cart" data-id="2" data-name="مندي دجاج" data-price="30">إضافة إلى السلة</button>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="menu-item" data-category="main">
+          <img
+            src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1599&q=80"
+            alt="Burger" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">برجر لحم</h3>
+            <p class="item-description">برجر لحم مع الجبن والخضار</p>
+            <p class="item-price">20 ر.س</p>
+            <button class="add-to-cart" data-id="3" data-name="برجر لحم" data-price="20">إضافة إلى السلة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="appetizers-section">
+      <h2 class="section-title" id="appetizers-section-title">المقبلات</h2>
+      <div class="menu-items">
+        <!-- Item 4 -->
+        <div class="menu-item" data-category="appetizers">
+          <img src="https://www.themediterraneandish.com/wp-content/uploads/2024/05/TMD-Hummus-Leads-03-Horizontal.jpg"
+            alt="Hummus" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">حمص</h3>
+            <p class="item-description">حمص مع زيت الزيتون</p>
+            <p class="item-price">10 ر.س</p>
+            <button class="add-to-cart" data-id="4" data-name="حمص" data-price="10">إضافة إلى السلة</button>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="menu-item" data-category="appetizers">
+          <img src="https://tse3.mm.bing.net/th/id/OIP.i3xrvPK2C8vG7KNkUsOPRQHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Falafel" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">فلافل</h3>
+            <p class="item-description">فلافل مقرمشة مع الطحينة</p>
+            <p class="item-price">8 ر.س</p>
+            <button class="add-to-cart" data-id="5" data-name="فلافل" data-price="8">إضافة إلى السلة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="drinks-section">
+      <h2 class="section-title" id="drinks-section-title">المشروبات</h2>
+      <div class="menu-items">
+        <!-- Item 6 -->
+        <div class="menu-item" data-category="drinks">
+          <img
+            src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Juice" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">عصير برتقال</h3>
+            <p class="item-description">عصير برتقال طازج</p>
+            <p class="item-price">7 ر.س</p>
+            <button class="add-to-cart" data-id="6" data-name="عصير برتقال" data-price="7">إضافة إلى السلة</button>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="menu-item" data-category="drinks">
+          <img src="https://tse4.mm.bing.net/th/id/OIP.0Q5aYCR4Dw8HcLB_StUOcgHaE8?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+            alt="Lemonade" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">ليموناضة</h3>
+            <p class="item-description">ليموناضة منعشة</p>
+            <p class="item-price">5 ر.س</p>
+            <button class="add-to-cart" data-id="7" data-name="ليموناضة" data-price="5">إضافة إلى السلة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="menu-section" id="desserts-section">
+      <h2 class="section-title" id="desserts-section-title">الحلويات</h2>
+      <div class="menu-items">
+        <!-- Item 8 -->
+        <div class="menu-item" data-category="desserts">
+          <img
+            src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Kunafa" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">كنافة</h3>
+            <p class="item-description">كنافة بالقشطة</p>
+            <p class="item-price">15 ر.س</p>
+            <button class="add-to-cart" data-id="8" data-name="كنافة" data-price="15">إضافة إلى السلة</button>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="menu-item" data-category="desserts">
+          <img
+            src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+            alt="Baklava" class="item-image" />
+          <div class="item-details">
+            <h3 class="item-name">بقلاوة</h3>
+            <p class="item-description">بقلاوة بالفستق</p>
+            <p class="item-price">12 ر.س</p>
+            <button class="add-to-cart" data-id="9" data-name="بقلاوة" data-price="12">إضافة إلى السلة</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Cart Button (Mobile) -->
+  <div class="floating-cart-btn" id="floating-cart-btn">
+    <span class="floating-cart-icon">🛒</span>
+    <span class="floating-cart-count" id="floating-cart-count">0</span>
+  </div>
+
+  <!-- Cart Modal -->
+  <div class="overlay" id="overlay"></div>
+  <div class="cart-modal" id="cart-modal">
+    <div class="cart-header">
+      <h2 id="cart-title">سلة التسوق</h2>
+      <span class="close-cart" id="close-cart">×</span>
+    </div>
+    <div class="cart-items" id="cart-items">
+      <!-- Cart items will be added here dynamically -->
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total" id="cart-total">الإجمالي: 0 ر.س</div>
+      <button class="checkout-btn" id="checkout-btn">إنهاء الطلب</button>
+    </div>
+  </div>
+  <section id="rest-contact-us" class="contact-section py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">
+        <span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span>
+      </h2>
+      <section class="contact_us" id="contact_us">
         <div class="row g-4">
           <div class="col-md-6">
             <div class="contact-card">
@@ -274,16 +318,12 @@
               <div class="map-container mt-3">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.8937831862443!2d31.340812715102754!3d30.06248238188125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzQ0LjkiTiAzMcKwMjAnMzMuNiJF!5e0!3m2!1sen!2seg!4v1634567890123!5m2!1sen!2seg"
-                  width="100%"
-                  height="250"
-                  style="border: 0; border-radius: 10px"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
+                  width="100%" height="250" style="border: 0; border-radius: 10px" allowfullscreen=""
+                  loading="lazy"></iframe>
               </div>
             </div>
           </div>
-        </footer>
+          </footer>
           <!-- <div class="col-md-6">
             <div class="contact-card">
               <h3 class="location-name mb-3">
@@ -322,11 +362,335 @@
             </div>
           </div> -->
         </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
-    
-    <script src="menu.js"></script>
-    <script src="script.js"></script>
-  </body>
+
+  <script src="menu.js"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // Perfect Category Navigation - محاذاة مثالية للـ categories
+    document.addEventListener('DOMContentLoaded', function () {
+      const categories = document.querySelectorAll('.category[data-category]');
+      const sections = document.querySelectorAll('.menu-section');
+
+      // حساب المسافة الدقيقة من العناصر الثابتة
+      function getExactOffset() {
+        const header = document.querySelector('header');
+        const categoriesContainer = document.querySelector('.categories-container');
+
+        let offset = 0;
+
+        // إضافة ارتفاع الـ header إذا كان sticky
+        if (header) {
+          const headerRect = header.getBoundingClientRect();
+          const headerStyle = window.getComputedStyle(header);
+          if (headerStyle.position === 'sticky' || headerStyle.position === 'fixed') {
+            offset += headerRect.height;
+          }
+        }
+
+        // إضافة ارتفاع الـ categories container إذا كان sticky
+        if (categoriesContainer) {
+          const categoriesRect = categoriesContainer.getBoundingClientRect();
+          const categoriesStyle = window.getComputedStyle(categoriesContainer);
+          if (categoriesStyle.position === 'sticky' || categoriesStyle.position === 'fixed') {
+            offset += categoriesRect.height;
+          }
+        }
+
+        return Math.ceil(offset); // تقريب لأعلى لضمان عدم وجود مسافات
+      }
+
+      // الانتقال المباشر للقسم بدون مسافات
+      function scrollToSectionExact(sectionId) {
+        const section = document.getElementById(sectionId);
+        if (!section) return;
+
+        const offset = getExactOffset();
+        const sectionTop = section.getBoundingClientRect().top + window.pageYOffset;
+        const targetPosition = sectionTop - offset;
+
+        // استخدام scrollTo للحصول على محاذاة مثالية
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+      }
+
+      // تحديث الـ category النشط
+      function setActiveCategory(activeCategory) {
+        categories.forEach(cat => cat.classList.remove('active'));
+        activeCategory.classList.add('active');
+      }
+
+      // إضافة event listeners للـ categories
+      categories.forEach(category => {
+        category.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const categoryType = this.getAttribute('data-category');
+          let targetSectionId;
+
+          // تحديد القسم المستهدف
+          if (categoryType === 'all') {
+            targetSectionId = 'main-section';
+          } else {
+            targetSectionId = categoryType + '-section';
+          }
+
+          // الانتقال للقسم
+          scrollToSectionExact(targetSectionId);
+
+          // تحديث الـ category النشط
+          setActiveCategory(this);
+        });
+      });
+
+      // Intersection Observer لتحديد القسم النشط أثناء التمرير
+      const observerOptions = {
+        root: null,
+        rootMargin: `-${getExactOffset()}px 0px -60% 0px`,
+        threshold: 0.1
+      };
+
+      const observer = new IntersectionObserver(function (entries) {
+        let mostVisible = null;
+        let maxRatio = 0;
+
+        entries.forEach(entry => {
+          if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+            maxRatio = entry.intersectionRatio;
+            mostVisible = entry.target;
+          }
+        });
+
+        if (mostVisible) {
+          const sectionId = mostVisible.id;
+          const categoryType = sectionId.replace('-section', '');
+          const categoryElement = document.querySelector(`[data-category="${categoryType}"]`);
+
+          if (categoryElement) {
+            setActiveCategory(categoryElement);
+          }
+        }
+      }, observerOptions);
+
+      // مراقبة جميع الأقسام
+      sections.forEach(section => {
+        observer.observe(section);
+      });
+
+      // إعادة حساب المسافات عند تغيير حجم النافذة
+      let resizeTimeout;
+      window.addEventListener('resize', function () {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(function () {
+          // إعادة إنشاء الـ observer بالمسافات الجديدة
+          observer.disconnect();
+          const newObserverOptions = {
+            root: null,
+            rootMargin: `-${getExactOffset()}px 0px -60% 0px`,
+            threshold: 0.1
+          };
+
+          const newObserver = new IntersectionObserver(function (entries) {
+            let mostVisible = null;
+            let maxRatio = 0;
+
+            entries.forEach(entry => {
+              if (entry.isIntersecting && entry.intersectionRatio > maxRatio) {
+                maxRatio = entry.intersectionRatio;
+                mostVisible = entry.target;
+              }
+            });
+
+            if (mostVisible) {
+              const sectionId = mostVisible.id;
+              const categoryType = sectionId.replace('-section', '');
+              const categoryElement = document.querySelector(`[data-category="${categoryType}"]`);
+
+              if (categoryElement) {
+                setActiveCategory(categoryElement);
+              }
+            }
+          }, newObserverOptions);
+
+          sections.forEach(section => {
+            newObserver.observe(section);
+          });
+        }, 250);
+      });
+    });
+
+    // Working Hours Modal Functionality - تشغيل فوري
+    function initWorkingHoursModal() {
+      const workingHoursBtn = document.getElementById('working-hours-btn');
+      const workingHoursModal = document.getElementById('working-hours-modal');
+      const modalOverlay = document.getElementById('modal-overlay');
+      const closeBtn = document.getElementById('close-modal');
+
+      console.log('Working Hours Elements:', {
+        btn: workingHoursBtn,
+        modal: workingHoursModal,
+        overlay: modalOverlay,
+        closeBtn: closeBtn
+      });
+
+      // فتح البطاقة
+      function openModal() {
+        console.log('فتح بطاقة مواعيد العمل');
+        if (workingHoursModal) {
+          // منع التمدد والاستطالة
+          document.body.classList.add('modal-open');
+          document.body.style.overflow = 'hidden';
+          document.body.style.width = '100vw';
+
+          workingHoursModal.style.display = 'flex';
+          setTimeout(() => {
+            workingHoursModal.classList.add('show');
+          }, 10);
+        }
+      }
+
+      // إغلاق البطاقة
+      function closeModal() {
+        console.log('إغلاق بطاقة مواعيد العمل');
+        if (workingHoursModal) {
+          workingHoursModal.classList.remove('show');
+          setTimeout(() => {
+            workingHoursModal.style.display = 'none';
+
+            // إعادة تعيين الـ body
+            document.body.classList.remove('modal-open');
+            document.body.style.overflow = 'auto';
+            document.body.style.width = 'auto';
+          }, 300);
+        }
+      }
+
+      // Event Listeners
+      if (workingHoursBtn) {
+        workingHoursBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          console.log('تم النقر على زر مواعيد العمل');
+          openModal();
+        });
+      } else {
+        console.error('زر مواعيد العمل غير موجود!');
+      }
+
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          closeModal();
+        });
+      }
+
+      if (modalOverlay) {
+        modalOverlay.addEventListener('click', function (e) {
+          e.preventDefault();
+          closeModal();
+        });
+      }
+
+      // إغلاق البطاقة بالضغط على Escape
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && workingHoursModal && workingHoursModal.classList.contains('show')) {
+          closeModal();
+        }
+      });
+
+      // منع إغلاق البطاقة عند النقر على المحتوى
+      const modalContent = document.querySelector('.modal-content');
+      if (modalContent) {
+        modalContent.addEventListener('click', function (e) {
+          e.stopPropagation();
+        });
+      }
+    }
+
+    // تشغيل الدالة فوراً وعند تحميل الصفحة
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initWorkingHoursModal);
+    } else {
+      initWorkingHoursModal();
+    }
+
+    // تشغيل إضافي بعد ثانية للتأكد
+    setTimeout(initWorkingHoursModal, 1000);
+
+    // Language Translation System
+    document.addEventListener('DOMContentLoaded', function () {
+      const arBtn = document.getElementById('ar-btn');
+      const enBtn = document.getElementById('en-btn');
+      let currentLang = 'ar';
+
+      // تطبيق الترجمة
+      function applyTranslation(lang) {
+        currentLang = lang;
+
+        // تحديث اتجاه الصفحة
+        document.documentElement.setAttribute('lang', lang);
+        document.documentElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+        document.body.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+
+        // ترجمة جميع العناصر
+        const elementsToTranslate = document.querySelectorAll('[data-ar][data-en]');
+
+        elementsToTranslate.forEach(element => {
+          const text = lang === 'ar' ? element.getAttribute('data-ar') : element.getAttribute('data-en');
+
+          // إذا كان العنصر button أو له span بداخله
+          if (element.tagName === 'BUTTON' && element.querySelector('span')) {
+            element.querySelector('span').textContent = text;
+          } else {
+            element.textContent = text;
+          }
+        });
+
+        // تحديث أزرار اللغة
+        arBtn.classList.toggle('active', lang === 'ar');
+        enBtn.classList.toggle('active', lang === 'en');
+
+        // حفظ اللغة المختارة
+        localStorage.setItem('selectedLanguage', lang);
+
+        console.log(`تم تغيير اللغة إلى: ${lang}`);
+      }
+
+      // Event Listeners لأزرار اللغة
+      if (arBtn) {
+        arBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          applyTranslation('ar');
+        });
+      }
+
+      if (enBtn) {
+        enBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          applyTranslation('en');
+        });
+      }
+
+      // تحميل اللغة المحفوظة أو الافتراضية
+      const savedLang = localStorage.getItem('selectedLanguage') || 'ar';
+      applyTranslation(savedLang);
+
+      // تطبيق الترجمة عند فتح بطاقة مواعيد العمل
+      const originalOpenModal = window.openModal;
+      if (typeof originalOpenModal === 'function') {
+        window.openModal = function () {
+          originalOpenModal();
+          // إعادة تطبيق الترجمة على البطاقة
+          setTimeout(() => applyTranslation(currentLang), 100);
+        };
+      }
+    });
+  </script>
+</body>
+
 </html>

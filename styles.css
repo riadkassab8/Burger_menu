@@ -15,7 +15,7 @@ body {
 
 /* Modern Header Styles */
 .modern-header {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #6D4C41 100%);
   box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
   position: sticky;
   top: 0;
@@ -165,7 +165,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #6D4C41 100%);
   color: white;
 }
 
@@ -318,7 +318,7 @@ body {
 
 /* Hero Section */
 .hero-section {
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #6D4C41 100%);
   color: white;
   padding: 4rem 0;
   margin-top: 0;
@@ -697,7 +697,7 @@ body {
 }
 
 .contact-section {
-  background: #e74c3c;
+  background: #6D4C41;
   color: white;
 }
 
@@ -788,7 +788,7 @@ body {
 }
 
 .footer a:hover {
-  color: #ff8e53;
+  color: #6D4C41;
 }
 
 .menu-header {
@@ -857,7 +857,7 @@ body {
   transform: translateX(-50%);
   width: 100px;
   height: 4px;
-  background: linear-gradient(90deg, #ff6b6b, #ff8e53);
+  background: linear-gradient(90deg, #ff6b6b, #6D4C41);
   border-radius: 2px;
 }
 
@@ -873,7 +873,7 @@ body {
 
 .category-name i {
   font-size: 2rem;
-  color: #ff8e53;
+  color: #6D4C41;
 }
 
 .menu-item {
@@ -918,7 +918,7 @@ body {
   position: absolute;
   top: 15px;
   right: 15px;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
+  background: linear-gradient(135deg, #ff6b6b 0%, #6D4C41 100%);
   color: white;
   padding: 8px 15px;
   border-radius: 25px;
@@ -1235,44 +1235,311 @@ body {
 
 /* Header Styles */
 /* Loading Screen */
+/* Amazing Loading Screen */
 .loading-screen {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+  background-size: 400% 400%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 9999;
   transition: opacity 0.5s ease-out;
+  animation: backgroundShift 4s ease-in-out infinite;
+  overflow: hidden;
 }
 
-.loading-logo {
-  font-size: 32px;
-  font-weight: bold;
-  color: #e74c3c;
-  margin-bottom: 20px;
+.loading-screen::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  animation: rotate 10s linear infinite;
 }
 
-.loading-spinner {
-  width: 50px;
-  height: 50px;
-  border: 5px solid #f3f3f3;
-  border-top: 5px solid #e74c3c;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
+@keyframes backgroundShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
 }
 
-@keyframes spin {
+@keyframes rotate {
   0% {
     transform: rotate(0deg);
   }
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+/* Amazing Loading Logo */
+.loading-logo {
+  font-size: 32px;
+  font-weight: bold;
+  background: #fff;
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 30px;
+  animation: logoFloat 2s ease-in-out infinite, textGradient 3s ease-in-out infinite;
+  text-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+  letter-spacing: 2px;
+}
+
+@keyframes logoFloat {
+
+  0%,
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+
+  50% {
+    transform: translateY(-10px) scale(1.05);
+  }
+}
+
+@keyframes textGradient {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Amazing Loading Spinner */
+.loading-spinner {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  margin: 20px auto;
+}
+
+.loading-spinner::before,
+.loading-spinner::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  animation-duration: 1.8s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.loading-spinner::before {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #6D4C41, #fff);
+  background-size: 400% 400%;
+  animation: amazingSpin 1.5s linear infinite, gradientShift 3s ease-in-out infinite;
+  border: 3px solid transparent;
+  background-clip: padding-box;
+}
+
+.loading-spinner::after {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  background: #fff;
+  animation: counterSpin 2s linear infinite, pulse 1.5s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+/* Main spinning animation */
+@keyframes amazingSpin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+
+  25% {
+    transform: rotate(90deg) scale(1.1);
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1);
+  }
+
+  75% {
+    transform: rotate(270deg) scale(1.1);
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+
+/* Counter rotation for inner circle */
+@keyframes counterSpin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+
+/* Gradient color shifting */
+@keyframes gradientShift {
+
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Pulsing effect */
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.8);
+    opacity: 0.7;
+  }
+}
+
+/* Alternative Amazing Spinner Styles */
+.loading-spinner.style-2 {
+  width: 50px;
+  height: 50px;
+  border: 4px solid transparent;
+  border-top: 4px solid #ff6b6b;
+  border-right: 4px solid #4ecdc4;
+  border-bottom: 4px solid #45b7d1;
+  border-left: 4px solid #96ceb4;
+  border-radius: 50%;
+  animation: rainbowSpin 1.2s linear infinite, wobble 2s ease-in-out infinite;
+  position: relative;
+}
+
+.loading-spinner.style-2::before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border: 2px solid rgba(255, 107, 107, 0.2);
+  border-radius: 50%;
+  animation: outerRing 2.5s linear infinite;
+}
+
+@keyframes rainbowSpin {
+  0% {
+    transform: rotate(0deg);
+    filter: hue-rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
+  }
+}
+
+@keyframes wobble {
+
+  0%,
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+
+  25% {
+    transform: scale(1.1) rotate(5deg);
+  }
+
+  50% {
+    transform: scale(0.9) rotate(0deg);
+  }
+
+  75% {
+    transform: scale(1.1) rotate(-5deg);
+  }
+}
+
+@keyframes outerRing {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: rotate(180deg) scale(1.2);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: rotate(360deg) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Dots Spinner Alternative */
+.loading-spinner.dots {
+  width: 70px;
+  height: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.loading-spinner.dots::before,
+.loading-spinner.dots::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  animation: dotBounce 1.4s ease-in-out infinite;
+}
+
+.loading-spinner.dots::before {
+  animation-delay: 0s;
+}
+
+.loading-spinner.dots::after {
+  animation-delay: 0.7s;
+}
+
+@keyframes dotBounce {
+
+  0%,
+  80%,
+  100% {
+    transform: scale(0.8) translateY(0);
+    opacity: 0.5;
+  }
+
+  40% {
+    transform: scale(1.2) translateY(-10px);
+    opacity: 1;
   }
 }
 
@@ -1289,7 +1556,7 @@ body {
 .logo {
   font-size: 24px;
   font-weight: bold;
-  color: #e74c3c;
+  color: #6D4C41;
 }
 
 .header-controls {
@@ -1332,7 +1599,7 @@ body {
   position: absolute;
   top: -8px;
   left: -8px;
-  background-color: #e74c3c;
+  background-color: #6D4C41;
   color: white;
   border-radius: 50%;
   width: 20px;
@@ -1399,7 +1666,7 @@ body {
 }
 
 .category.active {
-  background-color: #e74c3c;
+  background-color: #6D4C41;
   color: white;
 }
 
@@ -1421,7 +1688,7 @@ body {
   font-size: 20px;
   margin-bottom: 15px;
   padding-bottom: 5px;
-  border-bottom: 2px solid #e74c3c;
+  border-bottom: 2px solid #6D4C41;
   color: #333;
 }
 
@@ -1467,12 +1734,12 @@ body {
 
 .item-price {
   font-weight: bold;
-  color: #e74c3c;
+  color: #6D4C41;
   margin-bottom: 10px;
 }
 
 .add-to-cart {
-  background-color: #e74c3c;
+  background-color: #6D4C41;
   color: white;
   border: none;
   padding: 8px 15px;
@@ -1575,7 +1842,7 @@ body {
   width: calc(100% - 30px);
   margin: 15px;
   padding: 12px;
-  background-color: #e74c3c;
+  background-color: #6D4C41;
   color: white;
   border: none;
   border-radius: 4px;
@@ -1965,7 +2232,7 @@ header {
 }
 
 .language-btn.active {
-  background: #e53935;
+  background: #6D4C41;
   color: white;
 }
 
@@ -1984,7 +2251,7 @@ header {
 .logo {
   font-weight: bold;
   font-size: 17px;
-  color: #e53935;
+  color: #6D4C41;
   background: #fff;
   padding: 5px 14px;
   border-radius: 50px;
@@ -2310,7 +2577,7 @@ header[dir="rtl"] .cart-count {
 
 .category-pressed {
   transform: scale(0.95);
-  background-color: #d32f2f !important;
+  background-color: #6d4c41 !important;
   transition: all 0.1s ease;
 }
 
@@ -2343,7 +2610,7 @@ header[dir="rtl"] .cart-count {
 
 /* Enhanced Loading Animation */
 .loading-screen {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #6D4C41;
 }
 
 .loading-logo {
@@ -2631,7 +2898,7 @@ header[dir="rtl"] .cart-count {
 }
 
 .cart-item-price {
-  color: #e74c3c;
+  color: #6D4C41;
   font-weight: 700;
   font-size: 0.85rem;
 }
@@ -2840,7 +3107,7 @@ ced Notification System */
   right: 20px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  background: linear-gradient(135deg, #6D4C41, #c0392b);
   border-radius: 50%;
   box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
   cursor: pointer;
@@ -2949,7 +3216,7 @@ hanced Cart Modal for Mobile */
   align-items: center;
   padding: 1rem;
   border-bottom: 1px solid #eee;
-  background: linear-gradient(135deg, #e74c3c, #c0392b);
+  background: linear-gradient(135deg, #6D4C41, #c0392b);
   color: white;
   position: sticky;
   top: 0;
@@ -3071,4 +3338,598 @@ losing animation */
   .cart-modal.cart-closing {
     transform: translateY(100%);
   }
+}
+
+/* تحسين
+ات للمحاذاة المثالية للـ Categories */
+
+/* إزالة أي مسافات إضافية من الأقسام */
+.menu-section {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+  scroll-margin-top: 0 !important;
+}
+
+/* ضمان عدم وجود مسافات في عنوان القسم */
+.section-title {
+  margin-top: 0 !important;
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+/* تحسين الـ categories container للمحاذاة المثالية */
+.categories-container {
+  margin-bottom: 0 !important;
+  border-bottom: 1px solid #eee;
+}
+
+/* تحسين الـ menu container */
+.menu-container {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* ضمان عدم وجود مسافات في الـ restaurant info */
+.restaurant-info {
+  margin-bottom: 0 !important;
+}
+
+/* تحسين الـ smooth scrolling */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 0;
+}
+
+/* تحسين الـ category buttons للتفاعل الأفضل */
+.category {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.category:active {
+  transform: scale(0.98);
+}
+
+/* تحسين للموبايل */
+@media (max-width: 768px) {
+  .menu-section {
+    scroll-margin-top: 0 !important;
+  }
+
+  .section-title {
+    padding-top: 15px;
+    margin-bottom: 15px;
+  }
+}
+
+/* إزالة أي margins أو paddings إضافية قد تؤثر على المحاذاة */
+.menu-section:first-child {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+.menu-section h2:first-child {
+  margin-top: 0 !important;
+}
+
+/ * زر مواعيد العمل في الـ Navigation */ .working-hours-btn {
+  background: linear-gradient(135deg, #6D4C41, #ff6b35);
+  color: white;
+  border: none;
+  outline: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  margin-top: 10px;
+  width: 100%;
+  justify-content: center;
+}
+
+
+.working-hours-btn i {
+  font-size: 16px;
+}
+
+/* بطاقة مواعيد العمل */
+.working-hours-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  display: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.working-hours-modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.modal-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  margin: 0;
+  border-radius: 20px;
+  width: 450px;
+  max-width: 90vw;
+  height: auto;
+  max-height: 85vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  transform: scale(0.7);
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.working-hours-modal.show .modal-content {
+  transform: scale(1);
+}
+
+.modal-header {
+  background: linear-gradient(32deg, #c41515, #ff6b35);
+  color: white;
+  padding: 20px;
+  border-radius: 20px 20px 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.3s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-body {
+  padding: 30px;
+}
+
+.working-hours-grid {
+  margin-bottom: 25px;
+}
+
+.day-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #f0f0f0;
+  transition: background 0.3s ease;
+}
+
+
+
+.day-row:last-child {
+  border-bottom: none;
+}
+
+.day-row.closed {
+  opacity: 0.6;
+}
+
+.day-row.closed .hours {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.day {
+  font-weight: 600;
+  color: #333;
+  font-size: 16px;
+}
+
+.hours {
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.additional-info {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 20px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+.info-item:hover {
+  background: #e9ecef;
+}
+
+.info-item i {
+  color: #6D4C41;
+  font-size: 16px;
+  width: 20px;
+  text-align: center;
+}
+
+.info-item span {
+  color: #333;
+  font-size: 14px;
+}
+
+/* تحسينات للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .modal-content {
+    width: 95%;
+    margin: 20px auto;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .day-row {
+    padding: 12px 0;
+  }
+
+  .day {
+    font-size: 14px;
+  }
+
+  .hours {
+    font-size: 13px;
+  }
+}
+
+/* تأثير الظهور */
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.working-hours-modal.show .modal-content {
+  animation: modalFadeIn 0.3s ease;
+}
+
+/ * تأكيد أن زر مواعيد العمل يعمل */ .working-hours-btn {
+  cursor: pointer !important;
+  pointer-events: auto !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+}
+
+.working-hours-btn:active {
+  transform: scale(0.95) !important;
+}
+
+/* تأكيد أن البطاقة تظهر بشكل صحيح بدون استطالة */
+.working-hours-modal {
+  display: none !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999 !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
+}
+
+.working-hours-modal.show {
+  display: flex !important;
+}
+
+/* تحسين الـ modal overlay */
+.modal-overlay {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(0, 0, 0, 0.7) !important;
+  cursor: pointer !important;
+}
+
+/ * تحسين إضافي لزر مواعيد العمل */ #working-hours-btn {
+  background: linear-gradient(135deg, #6D4C41, #ff6b35) !important;
+  color: white !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  border-radius: 25px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  transition: all 0.3s ease !important;
+  margin: 10px !important;
+  width: calc(100% - 20px) !important;
+  justify-content: center !important;
+  text-decoration: none !important;
+}
+
+#working-hours-btn:hover {
+  background: !important;
+  cursor: pointer;
+
+}
+
+
+
+#working-hours-btn i {
+  font-size: 16px !important;
+}
+
+/* تأكيد أن البطاقة في المقدمة */
+#working-hours-modal {
+  z-index: 99999 !important;
+}
+
+#working-hours-modal .modal-content {
+  z-index: 100000 !important;
+}
+
+/* 
+منع الاستطالة والتمدد في بطاقة مواعيد العمل */
+.working-hours-modal {
+  box-sizing: border-box !important;
+}
+
+.working-hours-modal * {
+  box-sizing: border-box !important;
+}
+
+.modal-content {
+  min-width: 300px !important;
+  max-width: 450px !important;
+  width: 450px !important;
+  min-height: auto !important;
+  max-height: 85vh !important;
+  overflow-x: hidden !important;
+  overflow-y: auto !important;
+}
+
+.modal-body {
+  padding: 25px !important;
+  width: 100% !important;
+  overflow-x: hidden !important;
+}
+
+.working-hours-grid {
+  width: 100% !important;
+  margin-bottom: 20px !important;
+}
+
+.day-row {
+  width: 100% !important;
+  min-height: 50px !important;
+  max-height: 60px !important;
+  overflow: hidden !important;
+}
+
+.additional-info {
+  width: 100% !important;
+  padding-top: 15px !important;
+}
+
+.info-item {
+  width: 100% !important;
+  min-height: 45px !important;
+  max-height: 55px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  text-overflow: ellipsis !important;
+}
+
+.info-item span {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 300px !important;
+}
+
+/* تحسينات للشاشات الصغيرة لمنع الاستطالة */
+@media (max-width: 480px) {
+  .modal-content {
+    width: 95vw !important;
+    max-width: 95vw !important;
+    min-width: 280px !important;
+  }
+
+  .info-item span {
+    max-width: 200px !important;
+    font-size: 13px !important;
+  }
+
+  .day-row {
+    padding: 12px 0 !important;
+  }
+}
+
+/* منع التمدد الأفقي */
+body.modal-open {
+  overflow-x: hidden !important;
+  width: 100vw !important;
+}
+
+.working-hours-modal.show {
+  overflow-x: hidden !important;
+  width: 100vw !important;
+}
+
+/* إزالة
+ الـ border من زر مواعيد العمل */
+.working-hours-btn {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3) !important;
+}
+
+.working-hours-btn:focus {
+  border: none !important;
+  outline: none !important;
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4) !important;
+}
+
+.working-hours-btn:active {
+  border: none !important;
+  outline: none !important;
+}
+
+.working-hours-btn:hover {
+  border: none !important;
+  outline: none !important;
+}
+
+/* إزالة أي تأثير border من الـ ::after */
+.working-hours-btn::after {
+  border: none !important;
+  outline: none !important;
+}
+
+/ * دعم الترجمة والاتجاهات */ [dir="ltr"] {
+  text-align: left !important;
+}
+
+[dir="rtl"] {
+  text-align: right !important;
+}
+
+/* تحسين أزرار اللغة */
+.language-btn.active {
+  background: #6D4C41 !important;
+  color: white !important;
+  font-weight: bold !important;
+}
+
+.language-btn {
+  transition: all 0.3s ease !important;
+}
+
+/* تحسين بطاقة مواعيد العمل للترجمة */
+[dir="ltr"] .modal-content {
+  text-align: left !important;
+}
+
+[dir="rtl"] .modal-content {
+  text-align: right !important;
+}
+
+[dir="ltr"] .day-row {
+  flex-direction: row !important;
+}
+
+[dir="rtl"] .day-row {
+  flex-direction: row !important;
+}
+
+[dir="ltr"] .info-item {
+  flex-direction: row !important;
+}
+
+[dir="rtl"] .info-item {
+  flex-direction: row !important;
+}
+
+/* تحسين القائمة المنسدلة للترجمة */
+[dir="ltr"] .nav-links {
+  left: 0 !important;
+  right: auto !important;
+  border-radius: 0 0 15px 0 !important;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+[dir="rtl"] .nav-links {
+  right: 0 !important;
+  left: auto !important;
+  border-radius: 0 0 0 15px !important;
+  box-shadow: -5px 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* تحسين الـ header للترجمة */
+[dir="ltr"] .header-container {
+  flex-direction: row-reverse !important;
+}
+
+[dir="rtl"] .header-container {
+  flex-direction: row !important;
+}
+
+/* تحسين النصوص للغة الإنجليزية */
+[dir="ltr"] body {
+  font-family: 'Arial', 'Helvetica', sans-serif !important;
+}
+
+[dir="rtl"] body {
+  font-family: 'Cairo', 'Tahoma', 'Arial', sans-serif !important;
+}
+
+/* تحسين الأوقات للغة الإنجليزية */
+[dir="ltr"] .hours {
+  font-family: 'Arial', monospace !important;
+}
+
+[dir="rtl"] .hours {
+  font-family: 'Cairo', 'Tahoma', sans-serif !important;
+}
+
+/* تحسين المعلومات الإضافية */
+[dir="ltr"] .info-item span {
+  text-align: left !important;
+}
+
+[dir="rtl"] .info-item span {
+  text-align: right !important;
 }
