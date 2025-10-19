@@ -2,9 +2,10 @@
 <html lang="ar" dir="rtl">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
     <title>قائمة المطعم</title>
     <link rel="stylesheet" href="styles.css" />
+    <!-- <link rel="stylesheet" href="chat.css">   -->
   </head>
   <body>
     <!-- Loading Screen -->
@@ -221,6 +222,12 @@
       </div>
     </div>
 
+    <!-- Floating Cart Button (Mobile) -->
+    <div class="floating-cart-btn" id="floating-cart-btn">
+      <span class="floating-cart-icon">🛒</span>
+      <span class="floating-cart-count" id="floating-cart-count">0</span>
+    </div>
+
     <!-- Cart Modal -->
     <div class="overlay" id="overlay"></div>
     <div class="cart-modal" id="cart-modal">
@@ -231,8 +238,10 @@
       <div class="cart-items" id="cart-items">
         <!-- Cart items will be added here dynamically -->
       </div>
-      <div class="cart-total" id="cart-total">الإجمالي: 0 ر.س</div>
-      <button class="checkout-btn" id="checkout-btn">إنهاء الطلب</button>
+      <div class="cart-footer">
+        <div class="cart-total" id="cart-total">الإجمالي: 0 ر.س</div>
+        <button class="checkout-btn" id="checkout-btn">إنهاء الطلب</button>
+      </div>
     </div>
     <section id="rest-contact-us" class="contact-section py-5">
       <div class="container">
