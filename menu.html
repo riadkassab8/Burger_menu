@@ -1,334 +1,327 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>القائمة - Menu | واحد برجر - Wahed Burger</title>
-    
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <nav class="navbar navbar-expand-lg navbar-dark modern-header">
-        <div class="container">
-             <!-- Language Toggle -->
-             <div class="language-toggle-header">
-              <button id="langToggle" class="lang-btn">
-                <span class="lang-option active" data-lang="ar">AR</span>
-                <span class="lang-separator">/</span>
-                <span class="lang-option" data-lang="en">EN</span>
-              </button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>قائمة المطعم</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loading-screen">
+      <div class="loading-logo">قائمة الطعام</div>
+      <div class="loading-spinner"></div>
+    </div>
+    <!-- Header -->
+    <header id="main-header">
+      <div class="header-container">
+        <!-- Cart -->
+        <div class="cart-icon" id="cart-icon">
+          🛒
+          <span class="cart-count" id="cart-count">0</span>
+        </div>
+
+        <!-- Language Switcher -->
+        <div class="language-switcher">
+          <button class="language-btn active" id="ar-btn">العربية</button>
+          <button class="language-btn" id="en-btn">English</button>
+        </div>
+
+        <!-- Logo and Menu -->
+        <div class="right-section">
+          <div class="menu-toggle" id="menu-toggle">☰</div>
+          <div class="logo" id="logo">قائمة الطعام</div>
+        </div>
+      </div>
+
+      <!-- Collapsed Links -->
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" class="nav-item" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+        <a href="menu.html" class="nav-item" data-ar="القائمة" data-en="Menu">القائمة</a>
+        <a href="#contact_us" class="nav-item" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+      </nav>
+    </header>
+    <!-- Restaurant Info -->
+    <div class="restaurant-info">
+      <img
+        src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+        alt="Restaurant"
+        class="restaurant-image"
+      />
+      <h1 class="restaurant-name" id="restaurant-name">مطعم المدينة</h1>
+      <p class="restaurant-description" id="restaurant-description">أجود أنواع الطعام العربي والأجنبي بأيدي خبراء الطهي</p>
+    </div>
+
+    <!-- Categories -->
+    <div class="categories-container">
+      <div class="categories">
+        <div class="category active" data-category="all" id="all-category">الكل</div>
+        <div class="category" data-category="main" id="main-category">الوجبات الرئيسية</div>
+        <div class="category" data-category="appetizers" id="appetizers-category">المقبلات</div>
+        <div class="category" data-category="drinks" id="drinks-category">المشروبات</div>
+        <div class="category" data-category="desserts" id="desserts-category">الحلويات</div>
+      </div>
+    </div>
+
+    <!-- Menu Sections -->
+    <div class="menu-container">
+      <div class="menu-section" id="main-section">
+        <h2 class="section-title" id="main-section-title">الوجبات الرئيسية</h2>
+        <div class="menu-items">
+          <!-- Item 1 -->
+          <div class="menu-item" data-category="main">
+            <img
+              src="https://images.unsplash.com/photo-1544025162-d76694265947?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+              alt="Kebab"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">كباب مشوي</h3>
+              <p class="item-description">لحم ضأن مشوي مع الأرز والخضار</p>
+              <p class="item-price">25 ر.س</p>
+              <button class="add-to-cart" data-id="1" data-name="كباب مشوي" data-price="25">إضافة إلى السلة</button>
             </div>
-          <!-- Logo and Brand -->
-          <a class="navbar-brand d-flex align-items-center ps-lg-2" href="#">
-            <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo" class="header-logo me-3" />
-            <div class="brand-text">
-              <h4 class="brand-name mb-0">
-                
+          </div>
+
+          <!-- Item 2 -->
+          <div class="menu-item" data-category="main">
+            <img
+              src="https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Mandi"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">مندي دجاج</h3>
+              <p class="item-description">دجاج مطبوخ مع الأرز البسمتي</p>
+              <p class="item-price">30 ر.س</p>
+              <button class="add-to-cart" data-id="2" data-name="مندي دجاج" data-price="30">إضافة إلى السلة</button>
             </div>
-          </a>
-  
-       
-  
-          <!-- Mobile Menu Button -->
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-  
-          <!-- Navigation Menu -->
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                  <i class="fas fa-home me-1"></i>
-                  <span data-ar="الرئيسية" data-en="Home">الرئيسية</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="menu.html">
-                  <i class="fas fa-utensils me-1"></i>
-                  <span data-ar="القائمة" data-en="Menu">القائمة</span>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#rest-contact-us">
-                  <i class="fas fa-phone me-1"></i>
-                  <span data-ar="تواصل معنا" data-en="Contact">تواصل معنا</span>
-                </a>
-              </li>
-            </ul>
-  
-            <!-- Cart Section -->
-            <div class="cart-section">
-              <button class="cart-btn" id="cartBtn">
-                <i class="fas fa-shopping-cart"></i>
-                <span class="cart-count" id="cartCount">0</span>
-              </button>
-              
-              <!-- Cart Dropdown -->
-              <div class="cart-dropdown" id="cartDropdown">
-                <div class="cart-header">
-                  <h5><span data-ar="سلة التسوق" data-en="Shopping Cart">سلة التسوق</span></h5>
-                  <button class="close-cart" id="closeCart">&times;</button>
-                </div>
-                <div class="cart-items" id="cartItems">
-                  <div class="empty-cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <p><span data-ar="سلة التسوق فارغة" data-en="Your cart is empty">سلة التسوق فارغة</span></p>
-                  </div>
-                </div>
-                <div class="cart-footer">
-                  <div class="cart-total">
-                    <strong><span data-ar="المجموع:" data-en="Total:">المجموع:</strong> <span id="cartTotal">0</span> <span data-ar="جنيه" data-en="EGP">جنيه</span>
-                  </div>
-                  <button class="btn btn-success w-100" id="checkoutBtn">
-                    <i class="fab fa-whatsapp me-2"></i>
-                    <span data-ar="اطلب عبر واتساب" data-en="Order via WhatsApp">اطلب عبر واتساب</span>
-                  </button>
-                </div>
-              </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="menu-item" data-category="main">
+            <img
+              src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1599&q=80"
+              alt="Burger"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">برجر لحم</h3>
+              <p class="item-description">برجر لحم مع الجبن والخضار</p>
+              <p class="item-price">20 ر.س</p>
+              <button class="add-to-cart" data-id="3" data-name="برجر لحم" data-price="20">إضافة إلى السلة</button>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
 
-    <header class="header-section menu-header">
-        <div class="container text-center py-4">
-            <a href="index.html" class="back-btn">
-                <i class="fas fa-arrow-right"></i> <span data-ar="العودة" data-en="Back">العودة</span>
-            </a>
-            <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo" class="logo mb-3">
-            <h1 class="restaurant-name mb-2">
-                <span data-ar="القائمة الكاملة" data-en="Full Menu">القائمة الكاملة</span>
-            </h1>
-            <p class="tagline mb-3">
-                <span data-ar="اختر من بين أشهى المأكولات" data-en="Choose from our delicious offerings">اختر من بين أشهى المأكولات</span>
-            </p>
+      <div class="menu-section" id="appetizers-section">
+        <h2 class="section-title" id="appetizers-section-title">المقبلات</h2>
+        <div class="menu-items">
+          <!-- Item 4 -->
+          <div class="menu-item" data-category="appetizers">
+            <img
+              src="https://www.themediterraneandish.com/wp-content/uploads/2024/05/TMD-Hummus-Leads-03-Horizontal.jpg"
+              alt="Hummus"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">حمص</h3>
+              <p class="item-description">حمص مع زيت الزيتون</p>
+              <p class="item-price">10 ر.س</p>
+              <button class="add-to-cart" data-id="4" data-name="حمص" data-price="10">إضافة إلى السلة</button>
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="menu-item" data-category="appetizers">
+            <img
+              src="https://tse3.mm.bing.net/th/id/OIP.i3xrvPK2C8vG7KNkUsOPRQHaHa?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt="Falafel"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">فلافل</h3>
+              <p class="item-description">فلافل مقرمشة مع الطحينة</p>
+              <p class="item-price">8 ر.س</p>
+              <button class="add-to-cart" data-id="5" data-name="فلافل" data-price="8">إضافة إلى السلة</button>
+            </div>
+          </div>
         </div>
-    </header>
+      </div>
 
-    <section class="menu-page py-5">
-        <div class="container">
-            <div class="menu-category mb-5">
-                <div class="category-header">
-                    <h2 class="category-name">
-                        <i class="fas fa-hamburger"></i>
-                        <span data-ar="بيف برجر" data-en="Beef Burgers">بيف برجر</span>
-                    </h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530627508-61330e87-77a5-4af8-888f-fa85a8f78c86.webp" alt="Classic Burger">
-                                <div class="price-tag">75 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="برجر كلاسيك" data-en="Classic Burger">برجر كلاسيك</h3>
-                                <p data-ar="برجر لحم بقري مع الخس والطماطم والمخلل" data-en="Beef burger with lettuce, tomato, and pickles">برجر لحم بقري مع الخس والطماطم والمخلل</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529794300-515c774c-94f2-4794-987e-ae0730ee762a.webp" alt="Double Burger">
-                                <div class="price-tag">110 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="دبل برجر" data-en="Double Burger">دبل برجر</h3>
-                                <p data-ar="قطعتين من اللحم البقري مع الجبن والخضار" data-en="Two beef patties with cheese and vegetables">قطعتين من اللحم البقري مع الجبن والخضار</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529797791-b3fbe189-4827-45eb-84e6-d1cd82a90eed.webp" alt="Cheese Burger">
-                                <div class="price-tag">85 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="تشيز برجر" data-en="Cheese Burger">تشيز برجر</h3>
-                                <p data-ar="برجر لحم بقري مع جبنة الشيدر المذابة" data-en="Beef burger with melted cheddar cheese">برجر لحم بقري مع جبنة الشيدر المذابة</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div class="menu-section" id="drinks-section">
+        <h2 class="section-title" id="drinks-section-title">المشروبات</h2>
+        <div class="menu-items">
+          <!-- Item 6 -->
+          <div class="menu-item" data-category="drinks">
+            <img
+              src="https://images.unsplash.com/photo-1551751299-1b51cab2694c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Juice"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">عصير برتقال</h3>
+              <p class="item-description">عصير برتقال طازج</p>
+              <p class="item-price">7 ر.س</p>
+              <button class="add-to-cart" data-id="6" data-name="عصير برتقال" data-price="7">إضافة إلى السلة</button>
             </div>
+          </div>
 
-            <div class="menu-category mb-5">
-                <div class="category-header">
-                    <h2 class="category-name">
-                        <i class="fas fa-drumstick-bite"></i>
-                        <span data-ar="تشيكن برجر" data-en="Chicken Burgers">تشيكن برجر</span>
-                    </h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530651937-5592ef97-b8e9-4dcc-8d26-bcd807166028.webp" alt="Chicken Burger">
-                                <div class="price-tag">65 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="تشيكن برجر" data-en="Chicken Burger">تشيكن برجر</h3>
-                                <p data-ar="صدور دجاج مقرمشة مع الخس والمايونيز" data-en="Crispy chicken breast with lettuce and mayo">صدور دجاج مقرمشة مع الخس والمايونيز</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529805152-426db3c4-17f7-4e99-a1cf-be4eadd8a9bb.webp" alt="Spicy Chicken">
-                                <div class="price-tag">70 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="تشيكن حار" data-en="Spicy Chicken">تشيكن حار</h3>
-                                <p data-ar="دجاج حار مع الصوص الحار والخضار" data-en="Spicy chicken with hot sauce and vegetables">دجاج حار مع الصوص الحار والخضار</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529808603-86601050-130b-4b4e-9faf-592dca56cb83.webp" alt="BBQ Chicken">
-                                <div class="price-tag">75 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="تشيكن باربيكيو" data-en="BBQ Chicken">تشيكن باربيكيو</h3>
-                                <p data-ar="دجاج مشوي مع صوص الباربيكيو" data-en="Grilled chicken with BBQ sauce">دجاج مشوي مع صوص الباربيكيو</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          <!-- Item 7 -->
+          <div class="menu-item" data-category="drinks">
+            <img
+              src="https://tse4.mm.bing.net/th/id/OIP.0Q5aYCR4Dw8HcLB_StUOcgHaE8?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+              alt="Lemonade"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">ليموناضة</h3>
+              <p class="item-description">ليموناضة منعشة</p>
+              <p class="item-price">5 ر.س</p>
+              <button class="add-to-cart" data-id="7" data-name="ليموناضة" data-price="5">إضافة إلى السلة</button>
             </div>
-
-            <div class="menu-category mb-5">
-                <div class="category-header">
-                    <h2 class="category-name">
-                        <i class="fas fa-french-fries"></i>
-                        <span data-ar="مقبلات" data-en="Appetizers">مقبلات</span>
-                    </h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530706639-3849fcac-d03e-4f46-9685-167b6f2314a6.webp" alt="French Fries">
-                                <div class="price-tag">25 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="بطاطس فرنش" data-en="French Fries">بطاطس فرنش</h3>
-                                <p data-ar="بطاطس مقرمشة مع الملح" data-en="Crispy fries with salt">بطاطس مقرمشة مع الملح</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530706639-3849fcac-d03e-4f46-9685-167b6f2314a6.webp" alt="Onion Rings">
-                                <div class="price-tag">30 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="حلقات البصل" data-en="Onion Rings">حلقات البصل</h3>
-                                <p data-ar="حلقات بصل مقرمشة ذهبية" data-en="Crispy golden onion rings">حلقات بصل مقرمشة ذهبية</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="menu-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530706639-3849fcac-d03e-4f46-9685-167b6f2314a6.webp" alt="Mozzarella Sticks">
-                                <div class="price-tag">40 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="أصابع الموتزاريلا" data-en="Mozzarella Sticks">أصابع الموتزاريلا</h3>
-                                <p data-ar="أصابع جبن موتزاريلا مقرمشة" data-en="Crispy mozzarella cheese sticks">أصابع جبن موتزاريلا مقرمشة</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="menu-category mb-5">
-                <div class="category-header">
-                    <h2 class="category-name">
-                        <i class="fas fa-pepper-hot"></i>
-                        <span data-ar="صوصات" data-en="Sauces">صوصات</span>
-                    </h2>
-                </div>
-                <div class="row g-4">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="menu-item sauce-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530794434-8031938c-e961-4b13-b626-e0af98f91c07.webp" alt="Ketchup">
-                                <div class="price-tag">5 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="كاتشب" data-en="Ketchup">كاتشب</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="menu-item sauce-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530794434-8031938c-e961-4b13-b626-e0af98f91c07.webp" alt="Mayonnaise">
-                                <div class="price-tag">5 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="مايونيز" data-en="Mayonnaise">مايونيز</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="menu-item sauce-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530794434-8031938c-e961-4b13-b626-e0af98f91c07.webp" alt="BBQ Sauce">
-                                <div class="price-tag">5 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="باربيكيو" data-en="BBQ Sauce">باربيكيو</h3>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="menu-item sauce-item">
-                            <div class="menu-item-img">
-                                <img src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530794434-8031938c-e961-4b13-b626-e0af98f91c07.webp" alt="Hot Sauce">
-                                <div class="price-tag">5 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                            </div>
-                            <div class="menu-item-content">
-                                <h3 data-ar="صوص حار" data-en="Hot Sauce">صوص حار</h3>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          </div>
         </div>
-    </section>
+      </div>
 
-    <section class="order-cta text-center py-5">
-        <div class="container">
-            <h2 class="section-title mb-4">
-                <span data-ar="جاهز للطلب؟" data-en="Ready to Order?">جاهز للطلب؟</span>
-            </h2>
-            <a href="index.html#rest-contact-us" class="btn btn-success btn-lg me-2">
-                <i class="fab fa-whatsapp"></i> <span data-ar="اطلب عبر واتساب" data-en="Order via WhatsApp">اطلب عبر واتساب</span>
-            </a>
-            <a href="index.html" class="btn btn-primary btn-lg">
-                <i class="fas fa-home"></i> <span data-ar="العودة للرئيسية" data-en="Back to Home">العودة للرئيسية</span>
-            </a>
+      <div class="menu-section" id="desserts-section">
+        <h2 class="section-title" id="desserts-section-title">الحلويات</h2>
+        <div class="menu-items">
+          <!-- Item 8 -->
+          <div class="menu-item" data-category="desserts">
+            <img
+              src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Kunafa"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">كنافة</h3>
+              <p class="item-description">كنافة بالقشطة</p>
+              <p class="item-price">15 ر.س</p>
+              <button class="add-to-cart" data-id="8" data-name="كنافة" data-price="15">إضافة إلى السلة</button>
+            </div>
+          </div>
+
+          <!-- Item 9 -->
+          <div class="menu-item" data-category="desserts">
+            <img
+              src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Baklava"
+              class="item-image"
+            />
+            <div class="item-details">
+              <h3 class="item-name">بقلاوة</h3>
+              <p class="item-description">بقلاوة بالفستق</p>
+              <p class="item-price">12 ر.س</p>
+              <button class="add-to-cart" data-id="9" data-name="بقلاوة" data-price="12">إضافة إلى السلة</button>
+            </div>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div class="overlay" id="overlay"></div>
+    <div class="cart-modal" id="cart-modal">
+      <div class="cart-header">
+        <h2 id="cart-title">سلة التسوق</h2>
+        <span class="close-cart" id="close-cart">×</span>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <!-- Cart items will be added here dynamically -->
+      </div>
+      <div class="cart-total" id="cart-total">الإجمالي: 0 ر.س</div>
+      <button class="checkout-btn" id="checkout-btn">إنهاء الطلب</button>
+    </div>
+    <section id="rest-contact-us" class="contact-section py-5">
+      <div class="container">
+        <h2 class="section-title text-center mb-5">
+          <span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span>
+        </h2>
+        <section class="contact_us" id="contact_us">
+        <div class="row g-4">
+          <div class="col-md-6">
+            <div class="contact-card">
+              <h3 class="location-name mb-3">
+                <span data-ar="مدينه نصر" data-en="Nasr City">مدينه نصر</span>
+              </h3>
+
+              <div class="contact-info mb-3">
+                <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
+                <p><a href="tel:+201143665727">+201143665727</a></p>
+              </div>
+
+              <div class="contact-info mb-3">
+                <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
+                <p><a href="https://wa.me/201011389401" target="_blank">+201011389401</a></p>
+              </div>
+
+              <div class="contact-info mb-3">
+                <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
+                <p><span data-ar="مدينه نصر اول مكرم" data-en="Nasr City, Awwal Makram">مدينه نصر اول مكرم</span></p>
+              </div>
+
+              <div class="map-container mt-3">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.8937831862443!2d31.340812715102754!3d30.06248238188125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzQ0LjkiTiAzMcKwMjAnMzMuNiJF!5e0!3m2!1sen!2seg!4v1634567890123!5m2!1sen!2seg"
+                  width="100%"
+                  height="250"
+                  style="border: 0; border-radius: 10px"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </div>
+        </footer>
+          <!-- <div class="col-md-6">
+            <div class="contact-card">
+              <h3 class="location-name mb-3">
+                <span data-ar="مصر الجديده" data-en="Heliopolis">مصر الجديده</span>
+              </h3>
+
+              <div class="contact-info mb-3">
+                <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
+                <p><a href="tel:+201009105861">+201009105861</a></p>
+              </div>
+
+              <div class="contact-info mb-3">
+                <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
+                <p><a href="https://wa.me/201009105861" target="_blank">+201009105861</a></p>
+              </div>
+
+              <div class="contact-info mb-3">
+                <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
+                <p>
+                  <span data-ar="القاهرة مصر الجديدة شارع الاهرام" data-en="Cairo, Heliopolis, Al Ahram Street"
+                    >القاهرة مصر الجديدة شارع الاهرام</span
+                  >
+                </p>
+              </div>
+
+              <div class="map-container mt-3">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.3901087614746!2d31.324562815103148!3d30.07726238187746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA0JzM4LjEiTiAzMcKwMTknNDAuNyJF!5e0!3m2!1sen!2seg!4v1634567890124!5m2!1sen!2seg"
+                  width="100%"
+                  height="250"
+                  style="border: 0; border-radius: 10px"
+                  allowfullscreen=""
+                  loading="lazy"
+                ></iframe>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
     </section>
 
     <footer class="footer py-3">
-        <div class="container text-center">
-            <p class="mb-0">Made With ❤️ <a href="https://menuo.pro/" target="_blank">Menu Pro</a></p>
-        </div>
+      <div class="container text-center">
+        <p class="mb-0">Made With ❤️ <a href="https://menuo.pro/" target="_blank">Menu Pro</a></p>
+      </div>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="menu.js"></script>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
