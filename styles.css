@@ -690,7 +690,7 @@ body {
 }
 
 .contact-section {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: #e74c3c;
   color: white;
 }
 
@@ -715,7 +715,7 @@ body {
 .location-name {
   font-size: 1.8rem;
   font-weight: 700;
-  color: #ffd89b;
+  color: #333;
   border-bottom: 2px solid rgba(255, 255, 255, 0.3);
   padding-bottom: 10px;
 }
@@ -723,7 +723,7 @@ body {
 .contact-info h5 {
   font-size: 1.1rem;
   font-weight: 600;
-  color: #ffd89b;
+  color: #333;
   margin-bottom: 5px;
 }
 
