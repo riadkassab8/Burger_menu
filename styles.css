@@ -493,7 +493,7 @@ body {
 }
 
 .carousel-section {
-  background-color: #fff;
+  background-color: linear-gradient(135deg, #ffd89b 0%, #19547b 100%);
   padding: 20px 0;
 }
 
@@ -1719,6 +1719,7 @@ body {
 .item-details {
   padding: 15px;
 }
+
 
 .item-name {
   font-size: 18px;

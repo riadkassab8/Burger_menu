@@ -1,374 +1,344 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>واحد برجر - Wahed Burger</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-        <!-- Loading Screen -->
-        <div class="loading-screen" id="loading-screen">
-          <div class="loading-logo">قائمة الطعام</div>
-          <div class="loading-spinner"></div>
-        </div>
-    <!-- Modern Header with Cart -->
-    <nav class="navbar navbar-expand-lg navbar-dark modern-header">
-      <div class="container">
-           <!-- Language Toggle -->
-           <div class="language-toggle-header">
-            <button id="langToggle" class="lang-btn">
-              <span class="lang-option active" data-lang="ar">AR</span>
-              <span class="lang-separator">/</span>
-              <span class="lang-option" data-lang="en">EN</span>
-            </button>
-          </div>
-        <!-- Logo and Brand -->
-        <a class="navbar-brand d-flex align-items-center ps-lg-2" href="#">
-          <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo" class="header-logo me-3" />
-          <div class="brand-text">
-            <h4 class="brand-name mb-0">
-              
-          </div>
-        </a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>واحد برجر - Wahed Burger</title>
 
-     
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="swipper/swipe.css">
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-        <!-- Mobile Menu Button -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-          <span class="navbar-toggler-icon"></span>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-logo">قائمة الطعام</div>
+    <div class="loading-spinner"></div>
+  </div>
+  <!-- Modern Header with Cart -->
+  <nav class="navbar navbar-expand-lg navbar-dark modern-header">
+    <div class="container">
+      <!-- Language Toggle -->
+      <div class="language-toggle-header">
+        <button id="langToggle" class="lang-btn">
+          <span class="lang-option active" data-lang="ar">AR</span>
+          <span class="lang-separator">/</span>
+          <span class="lang-option" data-lang="en">EN</span>
         </button>
-
-        <!-- Navigation Menu -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="#home">
-                <i class="fas fa-home me-1"></i>
-                <span data-ar="الرئيسية" data-en="Home">الرئيسية</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="menu.html">
-                <i class="fas fa-utensils me-1"></i>
-                <span data-ar="القائمة" data-en="Menu">القائمة</span>
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#rest-contact-us">
-                <i class="fas fa-phone me-1"></i>
-                <span data-ar="تواصل معنا" data-en="Contact">تواصل معنا</span>
-              </a>
-            </li>
-          </ul>
-
-          <!-- Cart Section -->
-          <div class="cart-section">
-            <button class="cart-btn" id="cartBtn">
-              <i class="fas fa-shopping-cart"></i>
-              <span class="cart-count" id="cartCount">0</span>
-            </button>
-            
-            <!-- Cart Dropdown -->
-            <div class="cart-dropdown" id="cartDropdown">
-              <div class="cart-header">
-                <h5><span data-ar="سلة التسوق" data-en="Shopping Cart">سلة التسوق</span></h5>
-                <button class="close-cart" id="closeCart">&times;</button>
-              </div>
-              <div class="cart-items" id="cartItems">
-                <div class="empty-cart">
-                  <i class="fas fa-shopping-cart"></i>
-                  <p><span data-ar="سلة التسوق فارغة" data-en="Your cart is empty">سلة التسوق فارغة</span></p>
-                </div>
-              </div>
-              <div class="cart-footer">
-                <div class="cart-total">
-                  <strong><span data-ar="المجموع:" data-en="Total:">المجموع:</strong> <span id="cartTotal">0</span> <span data-ar="جنيه" data-en="EGP">جنيه</span>
-                </div>
-                <button class="btn btn-success w-100" id="checkoutBtn">
-                  <i class="fab fa-whatsapp me-2"></i>
-                  <span data-ar="اطلب عبر واتساب" data-en="Order via WhatsApp">اطلب عبر واتساب</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
-    </nav>
+      <!-- Logo and Brand -->
+      <a class="navbar-brand d-flex align-items-center ps-lg-2" href="#">
+        <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo"
+          class="header-logo me-3" />
+        <div class="brand-text">
+          <h4 class="brand-name mb-0">
 
-    <!-- Hero Section -->
-    <section class="hero-section" id="home">
-      <div class="container text-center py-5">
-        <div class="hero-content">
-          <h1 class="hero-title mb-3">
-            <span data-ar="واحد برجر" data-en="Wahed Burger">واحد برجر</span>
-          </h1>
-          <p class="hero-subtitle mb-4">
-            <span data-ar="برجر رقم واحد" data-en="Number One Burger">برجر رقم واحد</span>
-          </p>
-          <div class="hero-buttons">
-            <a href="#rest-contact-us" class="btn btn-success btn-lg me-3">
-              <i class="fab fa-whatsapp"></i> WhatsApp
+        </div>
+      </a>
+
+
+
+      <!-- Mobile Menu Button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navigation Menu -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#home">
+              <i class="fas fa-home me-1"></i>
+              <span data-ar="الرئيسية" data-en="Home">الرئيسية</span>
             </a>
-            <a href="menu.html" class="btn btn-primary btn-lg">
-              <i class="fas fa-utensils"></i> <span data-ar="القائمة" data-en="Full Menu">القائمة</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="menu.html">
+              <i class="fas fa-utensils me-1"></i>
+              <span data-ar="القائمة" data-en="Menu">القائمة</span>
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#rest-contact-us">
+              <i class="fas fa-phone me-1"></i>
+              <span data-ar="تواصل معنا" data-en="Contact">تواصل معنا</span>
+            </a>
+          </li>
+        </ul>
 
-    <section class="carousel-section">
-      <div id="foodCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#foodCarousel" data-bs-slide-to="0" class="active"></button>
-          <button type="button" data-bs-target="#foodCarousel" data-bs-slide-to="1"></button>
-          <button type="button" data-bs-target="#foodCarousel" data-bs-slide-to="2"></button>
-          <button type="button" data-bs-target="#foodCarousel" data-bs-slide-to="3"></button>
-        </div>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529794300-515c774c-94f2-4794-987e-ae0730ee762a.webp"
-              class="d-block w-100"
-              alt="Burger 1"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529797791-b3fbe189-4827-45eb-84e6-d1cd82a90eed.webp"
-              class="d-block w-100"
-              alt="Burger 2"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529805152-426db3c4-17f7-4e99-a1cf-be4eadd8a9bb.webp"
-              class="d-block w-100"
-              alt="Burger 3"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/sliders/1757529808603-86601050-130b-4b4e-9faf-592dca56cb83.webp"
-              class="d-block w-100"
-              alt="Burger 4"
-            />
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#foodCarousel" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#foodCarousel" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </section>
+        <!-- Cart Section -->
+        <div class="cart-section">
+          <button class="cart-btn" id="cartBtn">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
 
-    <section class="menu-cta text-center py-5">
-      <div class="container">
-        <a href="menu.html"><img src="https://wahedburger.menuo.pro/_nuxt/click.C-DeAvR3.gif" alt="Click" class="click-gif mb-3" /></a>
-        <h2 class="section-title">
-          <span data-ar="عرض المنيو" data-en="View Menu">عرض المنيو</span>
-        </h2>
-      </div>
-    </section>
-
-    <section class="menu-categories py-5">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card">
-              <img
-                src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530627508-61330e87-77a5-4af8-888f-fa85a8f78c86.webp"
-                class="category-img"
-                alt="Beef Burger"
-              />
-              <div class="category-title">
-                <span data-ar="بيف برجر" data-en="Beef Burger">بيف برجر</span>
-                <div class="category-price">45 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('beef-burger')">
-                  <i class="fas fa-plus me-1"></i>
-                  <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
-                </button>
+          <!-- Cart Dropdown -->
+          <div class="cart-dropdown" id="cartDropdown">
+            <div class="cart-header">
+              <h5><span data-ar="سلة التسوق" data-en="Shopping Cart">سلة التسوق</span></h5>
+              <button class="close-cart" id="closeCart">&times;</button>
+            </div>
+            <div class="cart-items" id="cartItems">
+              <div class="empty-cart">
+                <i class="fas fa-shopping-cart"></i>
+                <p><span data-ar="سلة التسوق فارغة" data-en="Your cart is empty">سلة التسوق فارغة</span></p>
               </div>
             </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card">
-              <img
-                src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530651937-5592ef97-b8e9-4dcc-8d26-bcd807166028.webp"
-                class="category-img"
-                alt="Chicken Burger"
-              />
-              <div class="category-title">
-                <span data-ar="تشيكن برجر" data-en="Chicken Burger">تشيكن برجر</span>
-                <div class="category-price">40 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('chicken-burger')">
-                  <i class="fas fa-plus me-1"></i>
-                  <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
-                </button>
+            <div class="cart-footer">
+              <div class="cart-total">
+                <strong><span data-ar="المجموع:" data-en="Total:">المجموع:</strong> <span id="cartTotal">0</span> <span
+                  data-ar="جنيه" data-en="EGP">جنيه</span>
               </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card">
-              <img
-                src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530706639-3849fcac-d03e-4f46-9685-167b6f2314a6.webp"
-                class="category-img"
-                alt="Appetizers"
-              />
-              <div class="category-title">
-                <span data-ar="مقبلات" data-en="Appetizers">مقبلات</span>
-                <div class="category-price">25 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('appetizers')">
-                  <i class="fas fa-plus me-1"></i>
-                  <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
-                </button>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 col-lg-3">
-            <div class="category-card">
-              <img
-                src="https://tse4.mm.bing.net/th/id/OIP.idRWkfFwvTPlm80bUenKTQHaE8?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
-                class="category-img"
-                alt="Sauces"
-              />
-              <div class="category-title">
-                <span data-ar="صوصات" data-en="Sauces">صوصات</span>
-                <div class="category-price">15 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
-                <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('sauces')">
-                  <i class="fas fa-plus me-1"></i>
-                  <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
-                </button>
-              </div>
+              <button class="btn btn-success w-100" id="checkoutBtn">
+                <i class="fab fa-whatsapp me-2"></i>
+                <span data-ar="اطلب عبر واتساب" data-en="Order via WhatsApp">اطلب عبر واتساب</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </nav>
 
-    <section class="order-cta text-center py-5">
-      <div class="container" id="order-now">
-        <a href="menu.html"
-          ><img
-            src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/covers/1757594825440-c4ce2925-0ce3-4f8d-80b2-3eedaae62269.webp"
-            class="order-banner mb-4"
-            alt="Order Banner"
-        /></a>
-        <img src="https://wahedburger.menuo.pro/_nuxt/click.C-DeAvR3.gif" alt="Click" class="click-gif mb-3" />
-        <h2 class="section-title">
-          <span data-ar="أطلب الان" data-en="Order Now">أطلب الان</span>
-        </h2>
-      </div>
-    </section>
-
-    <section class="final-header text-center py-4">
-      <div class="container">
-        <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo" class="logo-small mb-3" />
-        <h2 class="restaurant-name-footer mb-2">
+  <!-- Hero Section -->
+  <section class="hero-section" id="home">
+    <div class="container text-center py-5">
+      <div class="hero-content">
+        <h1 class="hero-title mb-3">
           <span data-ar="واحد برجر" data-en="Wahed Burger">واحد برجر</span>
-        </h2>
-        <p class="tagline-footer mb-2">
+        </h1>
+        <p class="hero-subtitle mb-4">
           <span data-ar="برجر رقم واحد" data-en="Number One Burger">برجر رقم واحد</span>
         </p>
-        <p class="slogan"><span data-ar="يسد معاك" data-en="Satisfies Your Hunger">يسد معاك</span> 🍔🍟</p>
+        <div class="hero-buttons">
+          <a href="#rest-contact-us" class="btn btn-success btn-lg me-3">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="menu.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-utensils"></i> <span data-ar="القائمة" data-en="Full Menu">القائمة</span>
+          </a>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="rest-contact-us" class="contact-section py-5">
-      <div class="container">
-        <h2 class="section-title text-center mb-5">
-          <span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span>
-        </h2>
+  <section class="carousel-section">
+    <!-- Swiper -->
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <img
+            src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530627508-61330e87-77a5-4af8-888f-fa85a8f78c86.webp" />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530651937-5592ef97-b8e9-4dcc-8d26-bcd807166028.webp" />
+        </div>
+        <div class="swiper-slide">
+          <img
+            src="https://c8.alamy.com/comp/2GC4YFD/barbecue-dry-aged-tomahawk-steak-beef-meat-set-on-wooden-serving-board-on-old-dark-wooden-table-background-2GC4YFD.jpg" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://smokedbyewe.com/wp-content/uploads/what-does-bark-mean-meat.webp" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://tse1.mm.bing.net/th/id/OIP.cgF4ZWHC0b4XucOgkffkhgHaJ4?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3" />
+        </div>
+      </div>
 
-        <div class="row g-4">
-          <div class="col-md-6">
-            <div class="contact-card">
-              <h3 class="location-name mb-3">
-                <span data-ar="مدينه نصر" data-en="Nasr City">مدينه نصر</span>
-              </h3>
+    </div>
+  </section>
 
-              <div class="contact-info mb-3">
-                <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
-                <p><a href="tel:+201143665727">+201143665727</a></p>
-              </div>
+  <section class="menu-cta text-center py-5">
+    <div class="container">
+      <a href="menu.html"><img src="https://wahedburger.menuo.pro/_nuxt/click.C-DeAvR3.gif" alt="Click"
+          class="click-gif mb-3" /></a>
+      <h2 class="section-title">
+        <span data-ar="عرض المنيو" data-en="View Menu">عرض المنيو</span>
+      </h2>
+    </div>
+  </section>
 
-              <div class="contact-info mb-3">
-                <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
-                <p><a href="https://wa.me/201011389401" target="_blank">+201011389401</a></p>
-              </div>
-
-              <div class="contact-info mb-3">
-                <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
-                <p><span data-ar="مدينه نصر اول مكرم" data-en="Nasr City, Awwal Makram">مدينه نصر اول مكرم</span></p>
-              </div>
-
-              <div class="map-container mt-3">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.8937831862443!2d31.340812715102754!3d30.06248238188125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzQ0LjkiTiAzMcKwMjAnMzMuNiJF!5e0!3m2!1sen!2seg!4v1634567890123!5m2!1sen!2seg"
-                  width="100%"
-                  height="250"
-                  style="border: 0; border-radius: 10px"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
-              </div>
+  <section class="menu-categories py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="category-card">
+            <img
+              src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530627508-61330e87-77a5-4af8-888f-fa85a8f78c86.webp"
+              class="category-img" alt="Beef Burger" />
+            <div class="category-title">
+              <span data-ar="بيف برجر" data-en="Beef Burger">بيف برجر</span>
+              <div class="category-price">45 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+              <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('beef-burger')">
+                <i class="fas fa-plus me-1"></i>
+                <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
+              </button>
             </div>
           </div>
-
-          <div class="col-md-6">
-            <div class="contact-card">
-              <h3 class="location-name mb-3">
-                <span data-ar="مصر الجديده" data-en="Heliopolis">مصر الجديده</span>
-              </h3>
-
-              <div class="contact-info mb-3">
-                <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
-                <p><a href="tel:+201009105861">+201009105861</a></p>
-              </div>
-
-              <div class="contact-info mb-3">
-                <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
-                <p><a href="https://wa.me/201009105861" target="_blank">+201009105861</a></p>
-              </div>
-
-              <div class="contact-info mb-3">
-                <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
-                <p>
-                  <span data-ar="القاهرة مصر الجديدة شارع الاهرام" data-en="Cairo, Heliopolis, Al Ahram Street"
-                    >القاهرة مصر الجديدة شارع الاهرام</span
-                  >
-                </p>
-              </div>
-
-              <div class="map-container mt-3">
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.3901087614746!2d31.324562815103148!3d30.07726238187746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA0JzM4LjEiTiAzMcKwMTknNDAuNyJF!5e0!3m2!1sen!2seg!4v1634567890124!5m2!1sen!2seg"
-                  width="100%"
-                  height="250"
-                  style="border: 0; border-radius: 10px"
-                  allowfullscreen=""
-                  loading="lazy"
-                ></iframe>
-              </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="category-card">
+            <img
+              src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530651937-5592ef97-b8e9-4dcc-8d26-bcd807166028.webp"
+              class="category-img" alt="Chicken Burger" />
+            <div class="category-title">
+              <span data-ar="تشيكن برجر" data-en="Chicken Burger">تشيكن برجر</span>
+              <div class="category-price">40 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+              <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('chicken-burger')">
+                <i class="fas fa-plus me-1"></i>
+                <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="category-card">
+            <img
+              src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530706639-3849fcac-d03e-4f46-9685-167b6f2314a6.webp"
+              class="category-img" alt="Appetizers" />
+            <div class="category-title">
+              <span data-ar="مقبلات" data-en="Appetizers">مقبلات</span>
+              <div class="category-price">25 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+              <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('appetizers')">
+                <i class="fas fa-plus me-1"></i>
+                <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="category-card">
+            <img src="https://tse4.mm.bing.net/th/id/OIP.idRWkfFwvTPlm80bUenKTQHaE8?cb=12&rs=1&pid=ImgDetMain&o=7&rm=3"
+              class="category-img" alt="Sauces" />
+            <div class="category-title">
+              <span data-ar="صوصات" data-en="Sauces">صوصات</span>
+              <div class="category-price">15 <span data-ar="جنيه" data-en="EGP">جنيه</span></div>
+              <button class="btn btn-success btn-sm add-to-cart-btn" onclick="addToCart('sauces')">
+                <i class="fas fa-plus me-1"></i>
+                <span data-ar="أضف للسلة" data-en="Add to Cart">أضف للسلة</span>
+              </button>
             </div>
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <footer class="footer py-3">
-      <div class="container text-center">
-        <p class="mb-0">Made With ❤️ <a href="https://menuo.pro/" target="_blank">Menu Pro</a></p>
+  <section class="order-cta text-center py-5">
+    <div class="container" id="order-now">
+      <a href="menu.html"><img
+          src="https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/covers/1757594825440-c4ce2925-0ce3-4f8d-80b2-3eedaae62269.webp"
+          class="order-banner mb-4" alt="Order Banner" /></a>
+      <img src="https://wahedburger.menuo.pro/_nuxt/click.C-DeAvR3.gif" alt="Click" class="click-gif mb-3" />
+      <h2 class="section-title">
+        <span data-ar="أطلب الان" data-en="Order Now">أطلب الان</span>
+      </h2>
+    </div>
+  </section>
+
+  <section class="final-header text-center py-4">
+    <div class="container">
+      <img src="https://menuoprohub.top/wahedburger/logo/1757529393053_335.webp" alt="Wahed Burger Logo"
+        class="logo-small mb-3" />
+      <h2 class="restaurant-name-footer mb-2">
+        <span data-ar="واحد برجر" data-en="Wahed Burger">واحد برجر</span>
+      </h2>
+      <p class="tagline-footer mb-2">
+        <span data-ar="برجر رقم واحد" data-en="Number One Burger">برجر رقم واحد</span>
+      </p>
+      <p class="slogan"><span data-ar="يسد معاك" data-en="Satisfies Your Hunger">يسد معاك</span> 🍔🍟</p>
+    </div>
+  </section>
+
+  <section id="rest-contact-us" class="contact-section py-5">
+    <div class="container">
+      <h2 class="section-title text-center mb-5">
+        <span data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</span>
+      </h2>
+
+      <div class="row g-4">
+        <div class="col-md-6">
+          <div class="contact-card">
+            <h3 class="location-name mb-3">
+              <span data-ar="مدينه نصر" data-en="Nasr City">مدينه نصر</span>
+            </h3>
+
+            <div class="contact-info mb-3">
+              <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
+              <p><a href="tel:+201143665727">+201143665727</a></p>
+            </div>
+
+            <div class="contact-info mb-3">
+              <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
+              <p><a href="https://wa.me/201011389401" target="_blank">+201011389401</a></p>
+            </div>
+
+            <div class="contact-info mb-3">
+              <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
+              <p><span data-ar="مدينه نصر اول مكرم" data-en="Nasr City, Awwal Makram">مدينه نصر اول مكرم</span></p>
+            </div>
+
+            <div class="map-container mt-3">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.8937831862443!2d31.340812715102754!3d30.06248238188125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDAzJzQ0LjkiTiAzMcKwMjAnMzMuNiJF!5e0!3m2!1sen!2seg!4v1634567890123!5m2!1sen!2seg"
+                width="100%" height="250" style="border: 0; border-radius: 10px" allowfullscreen=""
+                loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
+          <div class="contact-card">
+            <h3 class="location-name mb-3">
+              <span data-ar="مصر الجديده" data-en="Heliopolis">مصر الجديده</span>
+            </h3>
+
+            <div class="contact-info mb-3">
+              <h5><span data-ar="أرقام التليفون" data-en="Phone Numbers">أرقام التليفون</span></h5>
+              <p><a href="tel:+201009105861">+201009105861</a></p>
+            </div>
+
+            <div class="contact-info mb-3">
+              <h5><span data-ar="واتس اب" data-en="WhatsApp">واتس اب</span></h5>
+              <p><a href="https://wa.me/201009105861" target="_blank">+201009105861</a></p>
+            </div>
+
+            <div class="contact-info mb-3">
+              <h5><span data-ar="العنوان" data-en="Address">العنوان</span></h5>
+              <p>
+                <span data-ar="القاهرة مصر الجديدة شارع الاهرام" data-en="Cairo, Heliopolis, Al Ahram Street">القاهرة
+                  مصر الجديدة شارع الاهرام</span>
+              </p>
+            </div>
+
+            <div class="map-container mt-3">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3452.3901087614746!2d31.324562815103148!3d30.07726238187746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzDCsDA0JzM4LjEiTiAzMcKwMTknNDAuNyJF!5e0!3m2!1sen!2seg!4v1634567890124!5m2!1sen!2seg"
+                width="100%" height="250" style="border: 0; border-radius: 10px" allowfullscreen=""
+                loading="lazy"></iframe>
+            </div>
+          </div>
+        </div>
       </div>
-    </footer>
-    <script src="menu.js"></script>t
-    <!-- <script src="script.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  </body>
+    </div>
+  </section>
+
+  <footer class="footer py-3">
+    <div class="container text-center">
+      <p class="mb-0">Made With ❤️ <a href="https://menuo.pro/" target="_blank">Menu Pro</a></p>
+    </div>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="swipper/swipe.js"></script>
+  <script src="menu.js"></script>t
+  <!-- <script src="script.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
 </html>
