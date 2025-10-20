@@ -181,7 +181,7 @@ function renderCartItems() {
         <small>${currentLanguage === "ar" ? "أضف بعض العناصر لتبدأ" : "Add some items to get started"}</small>
       </div>
     `;
-    cartTotal.textContent = currentLanguage === "ar" ? "الإجمالي: 0 ر.س" : "Total: 0 SAR";
+    cartTotal.textContent = currentLanguage === "ar" ? "الإجمالي: 0 ج.م" : "Total: 0 SAR";
     return;
   }
 
@@ -194,7 +194,7 @@ function renderCartItems() {
     cartItemElement.innerHTML = `
       <div class="cart-item-info">
         <div class="cart-item-name">${currentLanguage === "ar" ? item.name : menuItemsTranslations[item.name]?.name.en || item.name}</div>
-        <div class="cart-item-price">${item.price} ${currentLanguage === "ar" ? "ر.س" : "SAR"}</div>
+        <div class="cart-item-price">${item.price} ${currentLanguage === "ar" ? "ج.م" : "SAR"}</div>
       </div>
       <div class="cart-item-controls">
         <div class="cart-item-quantity">
@@ -233,7 +233,7 @@ function renderCartItems() {
     });
   });
 
-  cartTotal.textContent = currentLanguage === "ar" ? `الإجمالي: ${total} ر.س` : `Total: ${total} SAR`;
+  cartTotal.textContent = currentLanguage === "ar" ? `الإجمالي: ${total} ج.م` : `Total: ${total} SAR`;
 }
 
 function updateQuantity(id, change) {
@@ -261,21 +261,21 @@ function checkout() {
   // Create WhatsApp message
   const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
   let message = currentLanguage === "ar" ? "مرحباً، أريد طلب:\n\n" : "Hello, I want to order:\n\n";
-  
+
   cart.forEach(item => {
     const itemName = currentLanguage === "ar" ? item.name : menuItemsTranslations[item.name]?.name.en || item.name;
-    message += `${itemName} x${item.quantity} = ${item.price * item.quantity} ${currentLanguage === "ar" ? "ر.س" : "SAR"}\n`;
+    message += `${itemName} x${item.quantity} = ${item.price * item.quantity} ${currentLanguage === "ar" ? "ج.م" : "SAR"}\n`;
   });
-  
-  message += `\n${currentLanguage === "ar" ? "المجموع:" : "Total:"} ${total} ${currentLanguage === "ar" ? "ر.س" : "SAR"}`;
-  
+
+  message += `\n${currentLanguage === "ar" ? "المجموع:" : "Total:"} ${total} ${currentLanguage === "ar" ? "ج.م" : "SAR"}`;
+
   // WhatsApp number (you can change this)
   const whatsappNumber = "201011389401";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-  
+
   // Open WhatsApp
   window.open(whatsappUrl, '_blank');
-  
+
   // Clear cart after successful order
   setTimeout(() => {
     cart = [];
@@ -289,10 +289,10 @@ function checkout() {
 function showNotification(message, type = 'success') {
   // Remove existing notifications
   document.querySelectorAll('.notification').forEach(n => n.remove());
-  
+
   const notification = document.createElement("div");
   notification.className = `notification notification-${type}`;
-  
+
   const icon = type === 'success' ? '✓' : type === 'error' ? '✗' : 'ℹ';
   notification.innerHTML = `
     <div class="notification-content">
@@ -387,23 +387,23 @@ const floatingCartCount = document.getElementById('floating-cart-count');
 
 if (floatingCartBtn) {
   floatingCartBtn.addEventListener('click', openCart);
-  
+
   // Update floating cart count
   function updateFloatingCartCount() {
     const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
     floatingCartCount.textContent = totalItems;
     floatingCartCount.style.display = totalItems > 0 ? 'flex' : 'none';
-    
+
     if (totalItems > 0) {
       floatingCartBtn.classList.add('has-items');
     } else {
       floatingCartBtn.classList.remove('has-items');
     }
   }
-  
+
   // Override updateCartCount to also update floating button
   const originalUpdateCartCount = updateCartCount;
-  updateCartCount = function() {
+  updateCartCount = function () {
     originalUpdateCartCount();
     updateFloatingCartCount();
   };
@@ -418,7 +418,7 @@ menuToggle.addEventListener("click", () => {
 });
 
 // Mobile-specific improvements
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
   // Close mobile menu when clicking on a nav item
   document.querySelectorAll('.nav-item').forEach(item => {
     item.addEventListener('click', () => {
@@ -436,28 +436,28 @@ document.addEventListener("DOMContentLoaded", function() {
   // Enhanced cart modal event listeners for mobile
   const cartCloseBtn = document.getElementById('close-cart');
   const cartOverlay = document.getElementById('overlay');
-  
+
   if (cartCloseBtn) {
     cartCloseBtn.addEventListener('click', (e) => {
       e.preventDefault();
       e.stopPropagation();
       closeCartModal();
     });
-    
+
     cartCloseBtn.addEventListener('touchend', (e) => {
       e.preventDefault();
       e.stopPropagation();
       closeCartModal();
     });
   }
-  
+
   if (cartOverlay) {
     cartOverlay.addEventListener('click', (e) => {
       if (e.target === cartOverlay) {
         closeCartModal();
       }
     });
-    
+
     cartOverlay.addEventListener('touchend', (e) => {
       if (e.target === cartOverlay) {
         e.preventDefault();
@@ -472,7 +472,7 @@ document.addEventListener("DOMContentLoaded", function() {
     cartModalElement.addEventListener('click', (e) => {
       e.stopPropagation();
     });
-    
+
     cartModalElement.addEventListener('touchend', (e) => {
       e.stopPropagation();
     });
@@ -488,16 +488,16 @@ document.addEventListener("DOMContentLoaded", function() {
   // Handle swipe down to close on mobile
   let startY = 0;
   let currentY = 0;
-  
+
   if (cartModalElement) {
     cartModalElement.addEventListener('touchstart', (e) => {
       startY = e.touches[0].clientY;
     });
-    
+
     cartModalElement.addEventListener('touchmove', (e) => {
       currentY = e.touches[0].clientY;
       const diff = currentY - startY;
-      
+
       // Only allow swipe down from the top of the modal
       if (diff > 0 && cartModalElement.scrollTop === 0) {
         e.preventDefault();
@@ -506,10 +506,10 @@ document.addEventListener("DOMContentLoaded", function() {
         cartModalElement.style.transform = `translateY(${Math.min(diff, 100)}px)`;
       }
     });
-    
+
     cartModalElement.addEventListener('touchend', (e) => {
       const diff = currentY - startY;
-      
+
       if (diff > 100) {
         closeCartModal();
       } else {
@@ -532,7 +532,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
   // Smooth scrolling for category navigation on mobile
   categories.forEach(category => {
-    category.addEventListener('click', function() {
+    category.addEventListener('click', function () {
       // Add visual feedback
       this.classList.add('category-pressed');
       setTimeout(() => {
@@ -570,44 +570,44 @@ document.addEventListener("DOMContentLoaded", function() {
 // Enhanced cart functions for mobile
 function openCart() {
   if (!cartModal) return;
-  
+
   cartModal.classList.add('cart-opening');
   cartModal.style.display = "block";
   if (overlay) overlay.style.display = "block";
-  
+
   // Prevent body scroll on mobile
   if (window.innerWidth <= 768) {
     document.body.style.overflow = 'hidden';
     document.body.style.position = 'fixed';
     document.body.style.width = '100%';
   }
-  
+
   // Add animation classes
   setTimeout(() => {
     cartModal.classList.add('cart-open');
     if (overlay) overlay.classList.add('overlay-open');
   }, 10);
-  
+
   renderCartItems();
 }
 
 function closeCartModal() {
   if (!cartModal) return;
-  
+
   // Add closing animation class
   cartModal.classList.add('cart-closing');
   cartModal.classList.remove('cart-open');
   if (overlay) overlay.classList.remove('overlay-open');
-  
+
   // Restore body scroll and position
   document.body.style.overflow = 'auto';
   document.body.style.position = 'static';
   document.body.style.width = 'auto';
-  
+
   // Reset any transform from swipe gesture
   cartModal.style.transform = '';
   if (overlay) overlay.style.opacity = '';
-  
+
   setTimeout(() => {
     cartModal.style.display = "none";
     if (overlay) overlay.style.display = "none";
@@ -647,7 +647,7 @@ function addToCart(e) {
 
   // Show enhanced notification
   showNotification(currentLanguage === "ar" ? `${name} تمت إضافته إلى السلة` : `${name} added to cart`);
-  
+
   // Animate cart icon
   cartIcon.classList.add('cart-bounce');
   setTimeout(() => {

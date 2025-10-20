@@ -534,6 +534,7 @@ body {
 }
 
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateY(0);
@@ -585,6 +586,7 @@ body {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -932,6 +934,7 @@ body {
 }
 
 @keyframes priceFloat {
+
   0%,
   100% {
     transform: translateY(0);
@@ -968,6 +971,7 @@ body {
 }
 
 @media (max-width: 768px) {
+
   /* Hero section */
   .hero-title {
     font-size: 2rem;
@@ -1096,6 +1100,7 @@ body {
 }
 
 @media (max-width: 576px) {
+
   /* Hero section */
   .hero-title {
     font-size: 1.8rem;
@@ -1261,6 +1266,7 @@ body {
 }
 
 @keyframes backgroundShift {
+
   0%,
   100% {
     background-position: 0% 50%;
@@ -1297,6 +1303,7 @@ body {
 }
 
 @keyframes logoFloat {
+
   0%,
   100% {
     transform: translateY(0px) scale(1);
@@ -1308,6 +1315,7 @@ body {
 }
 
 @keyframes textGradient {
+
   0%,
   100% {
     background-position: 0% 50%;
@@ -1392,6 +1400,7 @@ body {
 
 /* Gradient color shifting */
 @keyframes gradientShift {
+
   0%,
   100% {
     background-position: 0% 50%;
@@ -1404,6 +1413,7 @@ body {
 
 /* Pulsing effect */
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -1455,6 +1465,7 @@ body {
 }
 
 @keyframes wobble {
+
   0%,
   100% {
     transform: scale(1) rotate(0deg);
@@ -1518,6 +1529,7 @@ body {
 }
 
 @keyframes dotBounce {
+
   0%,
   80%,
   100% {
@@ -1895,6 +1907,7 @@ body {
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
+
   /* Header adjustments */
   .header-container {
     padding: 0 10px;
@@ -2272,6 +2285,7 @@ header {
 }
 
 @media (max-width: 768px) {
+
   /* Header improvements */
   header {
     padding: 6px 12px;
@@ -2361,6 +2375,7 @@ header[dir="rtl"] .cart-count {
 
 /* Touch-friendly improvements */
 @media (max-width: 768px) {
+
   /* Increase touch targets */
   .menu-toggle,
   .cart-icon,
@@ -2435,6 +2450,7 @@ header[dir="rtl"] .cart-count {
 
 /* Performance optimizations for mobile */
 @media (max-width: 768px) {
+
   /* Optimize images for mobile */
   .restaurant-image,
   .item-image,
@@ -2471,6 +2487,7 @@ header[dir="rtl"] .cart-count {
 
 /* iOS specific fixes */
 @supports (-webkit-touch-callout: none) {
+
   /* Fix iOS zoom issues */
   input,
   select,
@@ -2496,6 +2513,7 @@ header[dir="rtl"] .cart-count {
 
 /* Android specific fixes */
 @media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+
   /* Fix Android font rendering */
   body {
     text-rendering: optimizeSpeed;
@@ -2503,7 +2521,8 @@ header[dir="rtl"] .cart-count {
 }
 
 /* High DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .loading-spinner {
     border-width: 3px;
   }
@@ -2599,6 +2618,7 @@ header[dir="rtl"] .cart-count {
 }
 
 @keyframes logoFloat {
+
   0%,
   100% {
     transform: translateY(0px);
@@ -2614,6 +2634,7 @@ header[dir="rtl"] .cart-count {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -2684,7 +2705,7 @@ header[dir="rtl"] .cart-count {
   overflow: hidden;
 }
 
-.menu-item::after {
+/* .menu-item::after {
   content: "";
   position: absolute;
   top: 0;
@@ -2694,7 +2715,7 @@ header[dir="rtl"] .cart-count {
   background: linear-gradient(135deg, rgba(231, 76, 60, 0.1), rgba(192, 57, 43, 0.1));
   opacity: 0;
   transition: opacity 0.3s ease;
-}
+} */
 
 .menu-item:hover::after {
   opacity: 1;
@@ -3086,7 +3107,7 @@ ced Notification System */
   right: 20px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #6d4c41, #c0392b);
+  background: linear-gradient(135deg, #6d4c41, #463726);
   border-radius: 50%;
   box-shadow: 0 4px 20px rgba(231, 76, 60, 0.4);
   cursor: pointer;
@@ -3118,7 +3139,7 @@ ced Notification System */
   position: absolute;
   top: -5px;
   right: -5px;
-  background: #ff4757;
+  background: #c59429;
   color: white;
   border-radius: 50%;
   width: 24px;
@@ -3145,6 +3166,7 @@ ced Notification System */
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
@@ -3155,7 +3177,32 @@ ced Notification System */
   }
 }
 
-/* Show floating button only on mobile */
+/* Show floating button on all screens */
+.floating-cart-btn {
+  display: flex !important;
+}
+
+/* Large screens styling */
+@media (min-width: 769px) {
+  .floating-cart-btn {
+    width: 70px !important;
+    height: 70px !important;
+    bottom: 30px !important;
+    right: 30px !important;
+  }
+
+  .floating-cart-icon {
+    font-size: 24px !important;
+  }
+
+  .floating-cart-count {
+    width: 25px !important;
+    height: 25px !important;
+    font-size: 14px !important;
+  }
+}
+
+/* Mobile screens styling */
 @media (max-width: 768px) {
   .floating-cart-btn {
     display: flex;
@@ -3299,6 +3346,7 @@ hanced Cart Modal for Mobile */
 
 /* Fix for iOS touch events */
 @supports (-webkit-touch-callout: none) {
+
   .close-cart,
   .overlay {
     -webkit-tap-highlight-color: transparent;
@@ -3993,7 +4041,7 @@ body.modal-open {
 }
 
 .add-to-cart:hover {
-  background: linear-gradient(135deg, #20c997, #17a2b8) !important;
+  background: #6d4c416e !important;
   transform: translateY(-2px) !important;
   box-shadow: 0 5px 15px rgba(40, 167, 69, 0.4) !important;
 }
@@ -4021,11 +4069,6 @@ body.modal-open {
   }
 }
 
-/* تأكيد أن السلة تعمل */
-#cart-icon {
-  cursor: pointer !important;
-  pointer-events: auto !important;
-}
 
 #cart-count {
   pointer-events: none !important;
@@ -4068,6 +4111,7 @@ body.modal-open {
 }
 
 @keyframes cartBounce {
+
   0%,
   20%,
   50%,
@@ -4085,38 +4129,6 @@ body.modal-open {
   }
 }
 
-/* CAR
-T ICON FIX - WORKING VERSION */
-#cart-icon {
-  position: fixed !important;
-  bottom: 30px !important;
-  right: 30px !important;
-  background: #6d4c41 !important;
-  color: white !important;
-  width: 70px !important;
-  height: 70px !important;
-  border-radius: 50% !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  font-size: 24px !important;
-  cursor: pointer !important;
-  z-index: 999999 !important;
-  box-shadow: 0 4px 15px rgba(255, 142, 83, 0.4) !important;
-  transition: all 0.3s ease !important;
-  pointer-events: auto !important;
-  user-select: none !important;
-}
-
-#cart-icon:hover {
-  transform: scale(1.1) rotate(5deg) !important;
-  box-shadow: 0 6px 20px rgba(255, 142, 83, 0.6) !important;
-  background: linear-gradient(135deg, #ff6b35, #ff4500) !important;
-}
-
-#cart-icon:active {
-  transform: scale(0.95) !important;
-}
 
 #cart-count {
   position: absolute !important;
@@ -4143,11 +4155,6 @@ T ICON FIX - WORKING VERSION */
 
 .left-section .cart-icon {
   display: none !important;
-}
-
-/* Ensure only the fixed cart shows */
-body > #cart-icon {
-  display: flex !important;
 }
 
 /* Add pulse animation to attract attention */
@@ -4292,8 +4299,75 @@ img {
 }
 
 /* Optimize for high DPI displays */
-@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+@media (-webkit-min-device-pixel-ratio: 2),
+(min-resolution: 192dpi) {
   .item-image {
     image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* E
+nhanced Add to Cart Buttons */
+.add-to-cart {
+  background: #6d4c41;
+  color: white !important;
+  border: none !important;
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  cursor: pointer !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  width: 100% !important;
+  margin-top: 10px !important;
+  transition: all 0.3s ease !important;
+  text-align: center !important;
+  display: block !important;
+}
+
+.add-to-cart:hover {
+  background: #c59429 !important;
+  transform: translateY(-2px) !important;
+  box-shadow: 0 9px 12px #463726 !important;
+}
+
+.add-to-cart:active {
+  transform: scale(0.95) !important;
+}
+
+/* Success state for add to cart */
+.add-to-cart.success {
+  background: linear-gradient(135deg, #ffc107, #fd7e14) !important;
+  color: #000 !important;
+}
+
+/* Cart success message styling */
+.cart-message {
+  font-family: 'Arial', sans-serif !important;
+  display: flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+.cart-message::before {
+  content: '✅' !important;
+  font-size: 16px !important;
+}
+
+/* Floating cart pulse animation */
+.floating-cart-btn.has-items {
+  animation: cartPulse 2s infinite !important;
+}
+
+@keyframes cartPulse {
+  0% {
+    box-shadow: 0 8px 25px rgba(255, 142, 83, 0.4);
+  }
+
+  50% {
+    box-shadow: 0 8px 25px rgba(255, 142, 83, 0.6), 0 0 0 10px rgba(255, 142, 83, 0.1);
+  }
+
+  100% {
+    box-shadow: 0 8px 25px rgba(255, 142, 83, 0.4);
   }
 }
