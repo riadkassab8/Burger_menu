@@ -14,3 +14,12 @@ var swiper = new Swiper(".mySwiper", {
         el: ".swiper-pagination",
     },
 });
+
+// GSAP
+gsap.to(".head_image img", {
+    y: -20,                // move up
+    duration: 1.2,         // time for one move
+    ease: "power1.inOut",  // smooth in/out
+    repeat: -1,            // infinite loop
+    yoyo: true             // go back automatically
+});

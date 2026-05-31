@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>تتبع الطلب - واحد برجر</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .tracking-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-2xl) var(--spacing-md);
+    }
+    
+    .tracking-header {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+    
+    .tracking-header h2 {
+      color: var(--color-brand-primary);
+      font-weight: 700;
+    }
+    
+    .order-search {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-2xl);
+      box-shadow: var(--shadow-md);
+      margin-bottom: var(--spacing-2xl);
+    }
+    
+    .order-search input {
+      width: 100%;
+      padding: 15px;
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: 1.1rem;
+      margin-bottom: var(--spacing-md);
+    }
+    
+    .order-search input:focus {
+      outline: none;
+      border-color: var(--color-brand-primary);
+    }
+    
+    .search-btn {
+      background: var(--gradient-hero);
+      color: white;
+      border: none;
+      padding: var(--spacing-md) var(--spacing-2xl);
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      width: 100%;
+      transition: all var(--transition-base);
+    }
+    
+    .search-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .order-details {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-2xl);
+      box-shadow: var(--shadow-md);
+      display: none;
+    }
+    
+    .order-details.show {
+      display: block;
+      animation: fadeIn var(--transition-slow);
+    }
+    
+    .order-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: var(--spacing-2xl);
+      padding-bottom: var(--spacing-md);
+      border-bottom: 2px solid var(--color-border);
+    }
+    
+    .order-id {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-brand-primary);
+    }
+    
+    .order-status {
+      padding: 10px 20px;
+      border-radius: var(--radius-full);
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    
+    .order-status.pending {
+      background: #fff3e0;
+      color: #ff9800;
+    }
+    
+    .order-status.confirmed {
+      background: #e8f5e9;
+      color: #4caf50;
+    }
+    
+    .order-status.preparing {
+      background: #e3f2fd;
+      color: #2196f3;
+    }
+    
+    .order-status.delivering {
+      background: #f3e5f5;
+      color: #9c27b0;
+    }
+    
+    .order-status.completed {
+      background: #e8f5e9;
+      color: #4caf50;
+    }
+    
+    .tracking-timeline {
+      position: relative;
+      padding: var(--spacing-2xl) 0;
+    }
+    
+    .tracking-timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 100%;
+      background: #e9ecef;
+      border-radius: 2px;
+    }
+    
+    .timeline-item {
+      position: relative;
+      margin-bottom: var(--spacing-2xl);
+      padding: 0 3rem;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 20px;
+      height: 20px;
+      background: #e9ecef;
+      border: 4px solid white;
+      border-radius: 50%;
+      z-index: var(--z-card);
+    }
+    
+    .timeline-item.completed::before {
+      background: #4caf50;
+    }
+    
+    .timeline-item.current::before {
+      background: var(--color-brand-primary);
+      animation: pulse 2s infinite;
+    }
+    
+    .timeline-item.pending::before {
+      background: #e9ecef;
+    }
+    
+    .timeline-content {
+      text-align: center;
+    }
+    
+    .timeline-content h5 {
+      margin-bottom: var(--spacing-sm);
+      color: var(--color-text-primary);
+    }
+    
+    .timeline-content p {
+      color: var(--color-text-secondary);
+      margin: 0;
+      font-size: 0.9rem;
+    }
+    
+    .timeline-content .time {
+      color: var(--color-text-muted);
+      font-size: 0.85rem;
+      margin-top: var(--spacing-xs);
+    }
+    
+    .order-items {
+      background: var(--color-bg-section-alt);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .order-items h4 {
+      margin-bottom: var(--spacing-md);
+      color: var(--color-text-primary);
+    }
+    
+    .order-item {
+      display: flex;
+      justify-content: space-between;
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    
+    .order-item:last-child {
+      border-bottom: none;
+    }
+    
+    .order-item-name {
+      font-weight: 600;
+      color: var(--color-text-primary);
+    }
+    
+    .order-item-quantity {
+      color: var(--color-text-secondary);
+      margin: 0 var(--spacing-md);
+    }
+    
+    .order-item-price {
+      font-weight: 600;
+      color: var(--color-brand-primary);
+    }
+    
+    .order-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: var(--spacing-xl);
+      padding-top: var(--spacing-md);
+      border-top: 2px solid var(--color-border);
+    }
+    
+    .order-total h4 {
+      margin: 0;
+      color: var(--color-text-primary);
+    }
+    
+    .order-total .total-amount {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--color-brand-primary);
+    }
+    
+    .delivery-info {
+      background: #e3f2fd;
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .delivery-info h4 {
+      margin-bottom: var(--spacing-md);
+      color: #2196f3;
+    }
+    
+    .delivery-info-item {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .delivery-info-item i {
+      width: 30px;
+      color: #2196f3;
+    }
+    
+    .estimated-time {
+      background: var(--gradient-hero);
+      color: white;
+      padding: var(--spacing-lg);
+      border-radius: var(--radius-xl);
+      text-align: center;
+      margin-top: var(--spacing-2xl);
+    }
+    
+    .estimated-time h3 {
+      margin-bottom: var(--spacing-sm);
+    }
+    
+    .estimated-time .time {
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+    
+    @keyframes pulse {
+      0%, 100% {
+        transform: translateX(-50%) scale(1);
+      }
+      50% {
+        transform: translateX(-50%) scale(1.2);
+      }
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .tracking-timeline::before {
+        left: 20px;
+      }
+      
+      .timeline-item::before {
+        left: 20px;
+      }
+      
+      .timeline-item {
+        padding: 0 3rem 0 4rem;
+        text-align: right;
+      }
+      
+      .timeline-content {
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-logo">تتبع الطلب</div>
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="modern-header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="index.html" class="text-white text-decoration-none">
+          <i class="fas fa-home"></i>
+        </a>
+        <h1 class="text-white m-0">تتبع الطلب</h1>
+        <a href="menu.html" class="text-white text-decoration-none">
+          <i class="fas fa-utensils"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Tracking Container -->
+  <div class="tracking-container py-5">
+    <div class="tracking-header">
+      <h2><i class="fas fa-truck"></i> تتبع طلبك</h2>
+      <p>أدخل رقم الطلب لمتابعة حالته</p>
+    </div>
+
+    <!-- Order Search -->
+    <div class="order-search">
+      <input type="text" id="order-id-input" placeholder="أدخل رقم الطلب (مثال: ORD001)" />
+      <button class="search-btn" id="search-btn">
+        <i class="fas fa-search"></i> تتبع الطلب
+      </button>
+    </div>
+
+    <!-- Order Details -->
+    <div class="order-details" id="order-details">
+      <div class="order-info">
+        <div>
+          <small class="text-muted">رقم الطلب</small>
+          <div class="order-id" id="display-order-id">ORD001</div>
+        </div>
+        <div>
+          <small class="text-muted">الحالة</small>
+          <div class="order-status" id="order-status">قيد الانتظار</div>
+        </div>
+      </div>
+
+      <!-- Tracking Timeline -->
+      <div class="tracking-timeline" id="tracking-timeline">
+        <!-- Timeline items will be generated by JS -->
+      </div>
+
+      <!-- Order Items -->
+      <div class="order-items">
+        <h4><i class="fas fa-shopping-bag"></i> تفاصيل الطلب</h4>
+        <div id="order-items-list">
+          <!-- Items will be loaded by JS -->
+        </div>
+        <div class="order-total">
+          <h4>إجمالي المبلغ</h4>
+          <div class="total-amount" id="order-total">0 ج.م</div>
+        </div>
+      </div>
+
+      <!-- Delivery Info -->
+      <div class="delivery-info" id="delivery-info">
+        <h4><i class="fas fa-map-marker-alt"></i> معلومات التوصيل</h4>
+        <div class="delivery-info-item">
+          <i class="fas fa-user"></i>
+          <span id="customer-name">-</span>
+        </div>
+        <div class="delivery-info-item">
+          <i class="fas fa-phone"></i>
+          <span id="customer-phone">-</span>
+        </div>
+        <div class="delivery-info-item">
+          <i class="fas fa-map-marker-alt"></i>
+          <span id="delivery-address">-</span>
+        </div>
+      </div>
+
+      <!-- Estimated Time -->
+      <div class="estimated-time" id="estimated-time">
+        <h3><i class="fas fa-clock"></i> الوقت المقدر</h3>
+        <div class="time" id="eta-time">30 دقيقة</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="order-tracking.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>حجز طاولة - واحد برجر</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .reservation-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: var(--spacing-2xl);
+    }
+    .reservation-form {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-2xl);
+      box-shadow: var(--shadow-md);
+    }
+    .form-header {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+    .form-header h2 {
+      color: var(--color-brand-primary);
+      font-weight: 700;
+    }
+    .form-header p {
+      color: var(--color-text-secondary);
+    }
+    .time-slots {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: var(--spacing-sm);
+      margin-top: var(--spacing-sm);
+    }
+    .time-slot {
+      padding: var(--spacing-sm);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-md);
+      text-align: center;
+      cursor: pointer;
+      transition: all var(--transition-base);
+    }
+    .time-slot:hover {
+      border-color: var(--color-brand-primary);
+      background: var(--color-bg-section-alt);
+    }
+    .time-slot.selected {
+      background: var(--color-brand-primary);
+      color: white;
+      border-color: var(--color-brand-primary);
+    }
+    .time-slot.disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .table-type-card {
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: var(--spacing-lg);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      text-align: center;
+    }
+    .table-type-card:hover {
+      border-color: var(--color-brand-primary);
+      transform: translateY(-5px);
+    }
+    .table-type-card.selected {
+      border-color: var(--color-brand-primary);
+      background: var(--color-bg-section-alt);
+    }
+    .table-type-card i {
+      font-size: 2rem;
+      color: var(--color-brand-primary);
+      margin-bottom: var(--spacing-sm);
+    }
+    .special-requests {
+      resize: vertical;
+      min-height: 100px;
+    }
+    .submit-btn {
+      background: var(--gradient-hero);
+      border: none;
+      padding: var(--spacing-md) var(--spacing-2xl);
+      border-radius: var(--radius-full);
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      width: 100%;
+      transition: all var(--transition-base);
+    }
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .confirmation-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.5);
+      z-index: var(--z-modal);
+      justify-content: center;
+      align-items: center;
+    }
+    .confirmation-modal.show {
+      display: flex;
+    }
+    .confirmation-content {
+      background: var(--color-bg-card);
+      border-radius: var(--radius-2xl);
+      padding: var(--spacing-2xl);
+      max-width: 500px;
+      width: 90%;
+      text-align: center;
+    }
+    .confirmation-icon {
+      font-size: 4rem;
+      color: #28a745;
+      margin-bottom: var(--spacing-md);
+    }
+    .reservation-details {
+      text-align: right;
+      margin: var(--spacing-xl) 0;
+      padding: var(--spacing-md);
+      background: var(--color-bg-section-alt);
+      border-radius: var(--radius-md);
+    }
+    .reservation-details p {
+      margin: var(--spacing-sm) 0;
+    }
+    .reservation-details strong {
+      color: var(--color-brand-primary);
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loading-screen">
+    <div class="loading-logo">حجز طاولة</div>
+    <div class="loading-spinner"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="modern-header">
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <a href="index.html" class="text-white text-decoration-none">
+          <i class="fas fa-home"></i>
+        </a>
+        <h1 class="text-white m-0">حجز طاولة</h1>
+        <a href="menu.html" class="text-white text-decoration-none">
+          <i class="fas fa-utensils"></i>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Reservation Form -->
+  <div class="reservation-container py-5">
+    <div class="reservation-form">
+      <div class="form-header">
+        <h2><i class="fas fa-calendar-alt"></i> حجز طاولة</h2>
+        <p>احجز طاولتك الآن واستمتع بتجربة فريدة</p>
+      </div>
+
+      <form id="reservation-form">
+        <!-- Personal Information -->
+        <div class="mb-4">
+          <h5 class="mb-3"><i class="fas fa-user"></i> المعلومات الشخصية</h5>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">الاسم الكامل *</label>
+              <input type="text" class="form-control" id="customer-name" required>
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">رقم الهاتف *</label>
+              <input type="tel" class="form-control" id="customer-phone" required>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">البريد الإلكتروني</label>
+            <input type="email" class="form-control" id="customer-email">
+          </div>
+        </div>
+
+        <!-- Branch Selection -->
+        <div class="mb-4">
+          <h5 class="mb-3"><i class="fas fa-map-marker-alt"></i> اختر الفرع</h5>
+          <select class="form-select" id="branch-select" required>
+            <option value="">اختر الفرع</option>
+            <option value="nasr-city">مدينة نصر</option>
+            <option value="heliopolis">مصر الجديدة</option>
+          </select>
+        </div>
+
+        <!-- Date Selection -->
+        <div class="mb-4">
+          <h5 class="mb-3"><i class="fas fa-calendar"></i> اختر التاريخ</h5>
+          <input type="date" class="form-control" id="reservation-date" required>
+        </div>
+
+        <!-- Time Selection -->
+        <div class="mb-4">
+          <h5 class="mb-3"><i class="fas fa-clock"></i> اختر الوقت</h5>
+          <div class="time-slots" id="time-slots">
+            <!-- Time slots will be generated by JS -->
+          </div>
+          <input type="hidden" id="selected-time" required>
+        </div>
+
+        <!-- Number of Guests -->
+        <div class="mb-4">
+          <h5 class="mb-3"><i class="fas fa-users"></i> عدد الضيوف</h5>
+          <select class="form-select" id="guests-count" required>
+            <option value="">اختر العدد</option>
+            <option value="1">شخص واحد</option>
+            <option value="2">شخصين</option>
+            <option value="3">3 أشخاص</option>
+            <option value="4">4 أشخاص</option>
+            <option value="5">5 أشخاص</option>
+            <option value="6">6 أشخاص</option>
+            <option value="7">7 أشخاص</option>
+            <option value="8">8 أشخاص</option>
+            <option value="9">9 أشخاص</option>
+            <option value="10">10 أشخاص أو أكثر</option>
+          </select>
+        </div>
+
+        <!-- Table Type -->
+        <div class="mb-4">
+          <h5 class="mb-3"><i class="fas fa-chair"></i> نوع الطاولة</h5>
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <div class="table-type-card" data-type="indoor">
+                <i class="fas fa-home"></i>
+                <h6>داخل المطعم</h6>
+                <small>طاولة داخلية</small>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="table-type-card" data-type="outdoor">
+                <i class="fas fa-tree"></i>
+                <h6>في الخارج</h6>
+                <small>طاولة خارجية</small>
+              </div>
+            </div>
+            <div class="col-md-4 mb-3">
+              <div class="table-type-card" data-type="vip">
+                <i class="fas fa-crown"></i>
+                <h6>VIP</h6>
+                <small>طاولة خاصة</small>
+              </div>
+            </div>
+          </div>
+          <input type="hidden" id="selected-table-type" required>
+        </div>
+
+        <!-- Special Requests -->
+        <div class="mb-4">
+          <h5 class="mb-3"><i class="fas fa-comment"></i> طلبات خاصة</h5>
+          <textarea class="form-control special-requests" id="special-requests" placeholder="أي طلبات خاصة؟ (مناسبة خاصة، حساسية غذائية، إلخ)"></textarea>
+        </div>
+
+        <!-- Submit Button -->
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-check-circle"></i> تأكيد الحجز
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Confirmation Modal -->
+  <div class="confirmation-modal" id="confirmation-modal">
+    <div class="confirmation-content">
+      <div class="confirmation-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h3>تم تأكيد الحجز بنجاح!</h3>
+      <p class="text-muted">شكراً لك، تم استلام حجزك</p>
+      
+      <div class="reservation-details" id="reservation-details">
+        <!-- Details will be filled by JS -->
+      </div>
+      
+      <p class="small text-muted">سيتم إرسال رسالة تأكيد إلى هاتفك</p>
+      
+      <button class="btn btn-success mt-3" onclick="closeModal()">
+        حسناً
+      </button>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="reservation.js"></script>
+</body>
+</html>

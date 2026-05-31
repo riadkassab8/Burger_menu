@@ -1,0 +1,76 @@
+{
+  "name": "واحد برجر - Wahed Burger",
+  "short_name": "واحد برجر",
+  "description": "قائمة طعام واحد برجر - أفضل البرجر في مصر",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#ff6b6b",
+  "theme_color": "#ff6b6b",
+  "orientation": "portrait-primary",
+  "dir": "rtl",
+  "lang": "ar",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "https://menuoprohub.top/alex1/logo/1758024242433_793.webp",
+      "sizes": "192x192",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://menuoprohub.top/alex1/logo/1758024242433_793.webp",
+      "sizes": "512x512",
+      "type": "image/webp",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["food", "restaurant", "delivery"],
+  "screenshots": [
+    {
+      "src": "https://menuoprohub.top/wahedburger/332dd7f9-373e-475c-b342-2e682f8707ee/categories/1757530627508-61330e87-77a5-4af8-888f-fa85a8f78c86.webp",
+      "sizes": "1280x720",
+      "type": "image/webp",
+      "form_factor": "wide"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "القائمة",
+      "short_name": "القائمة",
+      "description": "عرض قائمة الطعام",
+      "url": "/menu.html",
+      "icons": [
+        {
+          "src": "https://menuoprohub.top/alex1/logo/1758024242433_793.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "حجز طاولة",
+      "short_name": "حجز",
+      "description": "حجز طاولة في المطعم",
+      "url": "/reservation.html",
+      "icons": [
+        {
+          "src": "https://menuoprohub.top/alex1/logo/1758024242433_793.webp",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "تتبع الطلب",
+      "short_name": "تتبع",
+      "description": "تتبع حالة الطلب",
+      "url": "/order-tracking.html",
+      "icons": [
+        {
+          "src": "https://menuoprohub.top/alex1/logo/1758024242433_793.webp",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false
+}
