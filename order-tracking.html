@@ -100,28 +100,28 @@
     }
     
     .order-status.pending {
-      background: #fff3e0;
-      color: #ff9800;
+      background: rgba(212, 168, 83, 0.1);
+      color: var(--color-brand-accent);
     }
     
     .order-status.confirmed {
-      background: #e8f5e9;
-      color: #4caf50;
+      background: rgba(201, 39, 45, 0.1);
+      color: var(--color-brand-primary);
     }
     
     .order-status.preparing {
-      background: #e3f2fd;
-      color: #2196f3;
+      background: rgba(201, 39, 45, 0.15);
+      color: var(--color-brand-primary);
     }
     
     .order-status.delivering {
-      background: #f3e5f5;
-      color: #9c27b0;
+      background: rgba(212, 168, 83, 0.15);
+      color: var(--color-brand-accent);
     }
     
     .order-status.completed {
-      background: #e8f5e9;
-      color: #4caf50;
+      background: rgba(201, 39, 45, 0.1);
+      color: var(--color-brand-primary);
     }
     
     .tracking-timeline {
@@ -162,16 +162,16 @@
     }
     
     .timeline-item.completed::before {
-      background: #4caf50;
+      background: var(--color-brand-primary);
     }
     
     .timeline-item.current::before {
-      background: var(--color-brand-primary);
+      background: var(--color-brand-accent);
       animation: pulse 2s infinite;
     }
     
     .timeline-item.pending::before {
-      background: #e9ecef;
+      background: rgba(0,0,0,0.08);
     }
     
     .timeline-content {
@@ -254,7 +254,8 @@
     }
     
     .delivery-info {
-      background: #e3f2fd;
+      background: rgba(212, 168, 83, 0.05);
+      border: 1px solid rgba(212, 168, 83, 0.2);
       border-radius: var(--radius-xl);
       padding: var(--spacing-lg);
       margin-top: var(--spacing-2xl);
@@ -262,7 +263,7 @@
     
     .delivery-info h4 {
       margin-bottom: var(--spacing-md);
-      color: #2196f3;
+      color: var(--color-brand-accent);
     }
     
     .delivery-info-item {
@@ -274,7 +275,7 @@
     
     .delivery-info-item i {
       width: 30px;
-      color: #2196f3;
+      color: var(--color-brand-accent);
     }
     
     .estimated-time {

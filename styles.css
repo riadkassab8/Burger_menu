@@ -3,29 +3,25 @@
 /* CSS Variables - Design System (Source of Truth) */
 :root {
   /* Primary Brand */
-  --color-brand-primary: #C9272D;       /* أحمر مصري عميق */
-  --color-brand-secondary: #1A1A1A;     /* أسود دافئ */
-  --color-brand-accent: #D4A853;        /* ذهبي */
+  --color-brand-primary: #C9272D;       /* أحمر مصري عميق - buttons, active states, CTAs */
+  --color-brand-secondary: #1A1A1A;     /* أسود دافئ - backgrounds, navbar, footer */
+  --color-brand-accent: #D4A853;        /* ذهبي - prices, headings on dark, dividers */
 
   /* Backgrounds */
-  --color-bg-main: #FAFAF8;             /* أبيض مائل للكريم */
-  --color-bg-card: #FFFFFF;
-  --color-bg-dark: #1A1A1A;
-  --color-bg-section-alt: #F5F0E8;      /* عاجي */
+  --color-bg-main: #FAFAF8;             /* main page background */
+  --color-bg-card: #FFFFFF;             /* card backgrounds */
+  --color-bg-dark: #1A1A1A;             /* dark sections */
 
   /* Text */
-  --color-text-primary: #1A1A1A;
-  --color-text-secondary: #5A5A5A;
-  --color-text-muted: #9A9A9A;
-  --color-text-on-dark: #F5F0E8;
+  --color-text-primary: #1A1A1A;        /* headings on light background */
+  --color-text-secondary: #5A5A5A;      /* secondary text */
+  --color-text-on-dark: #FFFFFF;        /* white text on dark backgrounds */
 
   /* Borders */
-  --color-border: rgba(0,0,0,0.08);
-  --color-border-accent: rgba(212, 168, 83, 0.3);
+  --color-border: rgba(0,0,0,0.08);     /* borders only */
 
   /* Gradients */
   --gradient-hero: linear-gradient(160deg, #1A1A1A 0%, #2D1A1A 40%, #C9272D 100%);
-  --gradient-card-hover: linear-gradient(135deg, #FFF8F0 0%, #FFF3E6 100%);
   --gradient-gold: linear-gradient(90deg, #D4A853, #F2CC7D, #D4A853);
 
   /* Spacing */

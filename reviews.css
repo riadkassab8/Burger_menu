@@ -260,18 +260,18 @@
 
 .star-rating-input i {
   font-size: 2rem;
-  color: #ddd;
+  color: rgba(0,0,0,0.15);
   cursor: pointer;
   transition: all var(--transition-fast);
 }
 
 .star-rating-input i:hover,
 .star-rating-input i.active {
-  color: #ffc107;
+  color: var(--color-brand-accent);
 }
 
 .star-rating-input i:hover ~ i {
-  color: #ddd;
+  color: rgba(0,0,0,0.15);
 }
 
 .form-group {
@@ -444,7 +444,7 @@
 .overall-rating .rating-number {
   font-size: 3rem;
   font-weight: 700;
-  color: #ff6b6b;
+  color: var(--color--rand-primary)olor-6rand-primary);b;
 }
 
 .overall-rating .stars {
@@ -482,21 +482,21 @@
 .rating-bar .count {
   width: 50px;
   text-align: left;
-  color: #666;
+  color: #666
 }
 
 .review-card {
-  background: white;
+  background: var(--color-bg-card);;
   border-radius: 15px;
   padding: 1.5rem;
   margin-bottom: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: var(--shadow-sm
   transition: all 0.3s;
 }
 
 .review-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+  box-shadow: var)--shadow-md
 }
 
 .review-header {
@@ -516,7 +516,7 @@
   width: 50px;
   height: 50px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b6b 0%, #6d4c41 100%);
+  background: va-(g-radientt-h;ro
   display: flex;
   align-items: center;
   justify-content: center;
@@ -527,11 +527,11 @@
 
 .reviewer-name {
   font-weight: 600;
-  color: #333;
+  color: #333
 }
 
 .review-date {
-  color: #999;
+  color: #999
   font-size: 0.9rem;
 }
 
@@ -541,14 +541,14 @@
 }
 
 .review-text {
-  color: #555;
+  color: #555
   line-height: 1.6;
   margin-bottom: 1rem;
 }
 
 .review-item-name {
   font-weight: 600;
-  color: #ff6b6b;
+  color: var(--color-brand-primary);
   margin-bottom: 0.5rem;
 }
 
@@ -576,7 +576,7 @@
   gap: 1rem;
   margin-top: 1rem;
   padding-top: 1rem;
-  border-top: 1px solid #eee;
+  border-top: 1px solid rgba(0,0,0,0.08);
 }
 
 .review-action-btn {
@@ -599,7 +599,7 @@
 }
 
 .add-review-btn {
-  background: linear-gradient(135deg, #ff6b6b 0%, #6d4c41 100%);
+  background: va-(-gradientt-h;ro
   color: white;
   border: none;
   padding: 15px 30px;
@@ -726,7 +726,7 @@
 }
 
 .submit-review-btn {
-  background: linear-gradient(135deg, #ff6b6b 0%, #6d4c41 100%);
+  background: va-(-gradientt-h;ro
   color: white;
   border: none;
   padding: 15px 40px;
@@ -757,7 +757,7 @@
 }
 
 .item-rating .rating-count {
-  color: #999;
+  color: var(--color-text-secondary);
   font-size: 0.8rem;
 }
 
